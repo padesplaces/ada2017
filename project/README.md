@@ -20,16 +20,17 @@ Even if it's becomes a very profitable business for music industry, the goal of 
 
 # Dataset
 
-We will use the Million Songs dataset : 
-- mainly the SecondHandSongs dataset to gather all the covers 
-- Echo Nest Taste Profile to measure the popularity 
-- Last.fm to compute the similarity
-- Tagtrum to gather the songs genre 
+We will use the [Million Songs](https://labrosa.ee.columbia.edu/millionsong/) dataset : 
+
+- mainly the [SecondHandSongs](https://labrosa.ee.columbia.edu/millionsong/secondhand) dataset to gather all the covers 
+- [Echo Nest Taste Profile](https://labrosa.ee.columbia.edu/millionsong/tasteprofile) to measure the popularity 
+- [Last.fm](https://labrosa.ee.columbia.edu/millionsong/lastfm) to compute the similarity
+- [Tagtrum](http://www.tagtraum.com/msd_genre_datasets.html) to gather the songs genre 
 
 We will also use Wikipedia to get more informations on the artists (e.g. country of origin).
 
 We might use Amazon for reviews of albums and maybe Spotify for more accurate stats (number of plays, etc).
-In addition, thisismyjam could be helpful to complete Echo Nest.
+In addition, [thisismyjam](https://labrosa.ee.columbia.edu/millionsong/thisismyjam) could be helpful to complete Echo Nest.
 
 # A list of internal milestones up until project milestone 2
 
