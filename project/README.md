@@ -4,8 +4,11 @@
 
 Everybody knows the definition of a cover song (and  can cite several of them) as a new performance of a previously recorded song, by someone other than the original artist or composer.
 Something that is quite unknown is how the concept of cover version started. Actually, this phenomena started in the 1950s when record companies tried to reach out to more people by a way of reproducing original songs such that those were more appealing to a particular demography. If we go back to the racial segregation period in the United States, there were black radio stations and white radio stations. Covers versions were recorded by White artists and then diffused on white radio stations, without acknowledgement or financial compensation for the original (black) artists and it was clearly a "racist tool" as said the singer-songwriter Don McLean.
+
 Fortunately, the mentality changed and cover versions are nowadays used as a revival of old songs, sometimes with a radically different style, in a different language or with lyrics added for the case of instrumental compositions.
 Even if it's becomes a very profitable business for music industry, the goal of a cover version is still to spread a part of musical history to younger generations or to other cultures around the world.
+
+
 Through a spatial and time analysis of cover songs history, our goal is to explore cultural or social underlying patterns and how it is diffused in a globalized world.
 
 ### Research questions 
