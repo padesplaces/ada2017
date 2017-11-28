@@ -1,5 +1,7 @@
 # **_"My Way"_ of seeing music covers**
 
+All the code for milestone 2 is in "Project Notebook".
+
 ### Abstract
 
 Everybody knows the definition of a cover song (and  can cite several of them) as a new performance of a previously recorded song, by someone other than the original artist or composer.
@@ -21,7 +23,7 @@ Through a spatial and time analysis of cover songs history, our goal is to explo
 - Is there a certain genre(s) more covered than other genres ?
 - Do artists tend to cover songs from other genres than their own or not ?
 
-We are thinking of integrating a "song story" where we follow a song through its different cover versions
+We are thinking of integrating a "song story" where we follow a song through its different cover versions.
 
 ### Dataset
 
@@ -42,8 +44,8 @@ Until milestone 2 :
 - Merge the data from the different sources
 
 For milestone 3 :
- 
-- First analysis of the data in order to answer our research questions
+
+- Analysis of the data in order to answer our research questions
 - Selection of most interesting topics according to our first results
 - Maybe a deeper analysis of those questions
 - Create a data visualisation inspired by [this article](https://pudding.cool/2017/05/song-repetition/index.html).
