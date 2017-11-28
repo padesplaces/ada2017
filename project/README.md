@@ -13,38 +13,37 @@ Through a spatial and time analysis of cover songs history, our goal is to explo
 
 ### Research questions 
 
-- Do artists tend to cover other artists from the same country ? Same ethnia ? Or different ones ?
-- How did those tendencies evolve over time ? For example the racial issues of the middle of the century.
+- Do artists tend to cover other artists from the same country or different ones ?
+- How did those tendencies evolve over time ?
 - As our world became more connected over time, do songs spread further than before ?
 - Are covers generally more popular than their original ?
 - Are older songs more covered than recent ones ?
 - Is there a certain genre(s) more covered than other genres ?
-- Do artists tend to cover songs from other genres than theirs ?
+- Do artists tend to cover songs from other genres than their own or not ?
+
+We are thinking of integrating a "song story" where we follow a song through its different cover versions
 
 ### Dataset
 
-We will use the [Million Songs](https://labrosa.ee.columbia.edu/millionsong/) dataset : 
+- We will mainly use the [SecondHandSongs](https://labrosa.ee.columbia.edu/millionsong/secondhand) dataset and website API to gather all the covers and their infos, such as the artists nationalities, songs languages and years, as the MSD is sparse and unreliable for those.
+- Obviously we will still use the [Million Songs](https://labrosa.ee.columbia.edu/millionsong/) dataset, for additional information such as tempo or "song hotness" to mesure popularity.
+- [Last.fm](https://labrosa.ee.columbia.edu/millionsong/lastfm) to get the tags and determine the genre.
 
-- mainly the [SecondHandSongs](https://labrosa.ee.columbia.edu/millionsong/secondhand) dataset to gather all the covers 
-- [Echo Nest Taste Profile](https://labrosa.ee.columbia.edu/millionsong/tasteprofile) to measure the popularity 
-- [Last.fm](https://labrosa.ee.columbia.edu/millionsong/lastfm) to compute the similarity
-- [Tagtrum](http://www.tagtraum.com/msd_genre_datasets.html) to gather the songs genre 
+We used [musicgenreslist.com](http://www.musicgenreslist.com/) to establish an arborescence of genres and match the lastfm tags with them.
 
-We will also use Wikipedia to get more informations on the artists (e.g. country of origin).
 
-We might use Amazon for reviews of albums and maybe Spotify for more accurate stats (number of plays, etc).
-In addition, [thisismyjam](https://labrosa.ee.columbia.edu/millionsong/thisismyjam) could be helpful to complete Echo Nest.
+### A list of internal milestones
 
-### A list of internal milestones up until project milestone 2
+Until milestone 2 :
 
-- Data collection
 - Get acquainted with the data
-- Data cleaning 
+- Data collection from diverse datasets and web scraping to complete this data
+- Data cleaning
 - Merge the data from the different sources
-- First analysis of the data 
+
+For milestone 3 :
+ 
+- First analysis of the data in order to answer our research questions
 - Selection of most interesting topics according to our first results
-- Deeper analysis of those questions
-
-### Questions for TAs
-
-Are we allowed to use external APIs such as Spotify ?
+- Maybe a deeper analysis of those questions
+- Create a data visualisation inspired by [this article](https://pudding.cool/2017/05/song-repetition/index.html).
