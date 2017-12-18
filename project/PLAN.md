@@ -25,4 +25,7 @@ can switch last 2 questions
 * more covers in the same genre or not ?
 * originals by genre (piechart)
 
+### Popularity (optional)
+### Tempo (optional)
+
 # Song Story
