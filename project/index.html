@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en" data-version="1494602952381">
+<head>
+	<title>"My Way" of seeing covers</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="Are Pop Lyrics Getting More Repetitive?">
+	<meta name="news_keywords" content="pop music, compression algorithms, natural language processing, lyrics, songwriting">
+	
+	<meta property="og:title" content="Are Pop Lyrics Getting More Repetitive?">
+	<meta property="og:site_name" content="The Pudding">
+	<meta property="og:description" content="Measuring repetition in song lyrics over time using a compression algorithm">
+	<meta property="og:url" content="https://pudding.cool/2017/05/song-repetition/index.html">
+	<meta property="og:type" content="article">
+	<meta property="og:locale" content="en_US">
+	
+	<meta property="og:image" content="https://pudding.cool/2017/05/song-repetition/assets/img/preview.png">
+	<meta property="og:image:type" content="image/png">
+	<meta property="og:image:width" content="1200">
+	<meta property="og:image:height" content="600">
+	
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="https://pudding.cool">
+	<meta name="twitter:creator" content="@puddingviz">
+	<meta name="twitter:title" content="My Way of seeing covers">
+	<meta name="twitter:description" content="Measuring repetition in song lyrics over time using a compression algorithm">
+	<meta name="twitter:image:src" content="https://pudding.cool/2017/05/song-repetition/assets/img/preview.png">
+
+
+		<style>html{-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}body{font-feature-settings:'kern' 1,'onum' 1,'liga' 0;-webkit-tap-highlight-color:transparent}b,strong{font-weight:700}em,i{font-style:italic}ul{list-style-type:none}img,video{display:block;width:100%}button{cursor:pointer;border:none;outline:0;margin:0;padding:0;font-size:1rem}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}.hide-accessible{width:1px;height:1px;overflow:hidden;position:absolute}.hide-invisible{visibility:hidden}.hide-display{display:none}header{text-align:center;z-index:3000;padding:2.5rem auto;background:#ddd;height:100vh;margin-bottom:4rem;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;-ms-flex-pack:end;justify-content:flex-end}header .animation{margin-bottom:2rem}header .opening-title{font-family:'Canela Web';font-size:4rem;max-width:50rem;line-height:1.3;margin:0 auto}@media screen and (max-width:450px){header .opening-title{font-size:2.5rem;padding:0 1rem}}@media screen and (max-width:374px){header .opening-title{font-size:2rem;padding:0 1rem}}header .opening-sub{font-family:'Atlas Grotesk Web';font-weight:300;letter-spacing:.2em;margin-bottom:.2rem;text-transform:uppercase;font-size:.8rem;font-weight:400}@media only screen and (max-width:767px){header .opening-sub{max-width:90%;margin:0 auto;display:none}}header .byline{margin-top:1rem;padding-bottom:3rem;font-family:'Atlas Grotesk Web';font-size:.8rem}header .byline a{font-weight:500}header .logo-container{position:absolute;top:0;left:0;right:0;width:12rem;margin:0 auto}header .logo-container a.logo{overflow:hidden;zoom:1;border-bottom:none;display:block}header .logo-container a.logo svg{fill:rgba(0,0,0,.8)}header .logo-container a.logo .logo__text{text-transform:uppercase;color:#2a2a2a;display:inline-block;width:100%;margin:0;padding:0;line-height:48px;font-size:.9rem;font-weight:400;letter-spacing:.05em}header .logo-container a.logo .logo__svg{width:48px;height:48px;display:block;margin:0 auto}svg.beeswarm .baseline text{font-family:'Atlas Grotesk Web';pointer-events:none;font-weight:500;letter-spacing:.02rem;text-transform:capitalize}svg.beeswarm .bubble-container{font-size:.7rem}svg.beeswarm .bubble-container text,svg.beeswarm .bubble-container tspan{fill:#fff;paint-order:stroke;stroke-width:3px;stroke-linejoin:round;font-weight:700;text-anchor:middle;font-weight:500;letter-spacing:.1em;pointer-events:none}svg.beeswarm .bubble-container circle{cursor:pointer}svg.beeswarm .axis{text-anchor:middle}svg.beeswarm .axis .label{font-family:'Atlas Grotesk Web';font-size:.75rem;font-weight:500;text-transform:uppercase;fill:#232323}#discog-examples button,#discog-widget button{margin-top:.25rem;text-transform:capitalize;font-weight:500;color:0;font-size:.8rem;border:1px solid #adadad;border-radius:3px;background:#fff;font-family:'Atlas Grotesk Web'}#discog-widget button{padding:.3rem .5rem;margin-top:4px;position:absolute}@media screen and (max-width:450px){#discog-widget button{margin-top:1rem}}#compression-mini{width:100%;margin-top:0;padding-bottom:569px}#compression-mini .reduction{pointer-events:none;font-family:'Atlas Grotesk Web';font-weight:500}#compression-mini .size-original{pointer-events:none;font-family:'Atlas Grotesk Web';font-size:.85rem}#compression-mini .size-compressed{pointer-events:none;font-family:'Atlas Grotesk Web';font-size:.85rem}#compression-mini .odometer{border-top:1px dashed #d4d4d4}#compression-mini .slide-wrapper.slide{padding:1.5rem}@media not screen and (max-width:767px){#compression-mini .slide-wrapper{padding-top:10rem;padding-bottom:0}#compression-mini .slide-wrapper.first{padding-top:5em}#compression-mini .slide-wrapper.last{padding-bottom:0}#compression-mini .slide-wrapper.progressive{padding-top:15em}}@media only screen and (max-width:767px){#compression-mini .slide-wrapper{padding-top:0;padding-bottom:16rem}#compression-mini .slide-wrapper.first{padding-top:30rem}#compression-mini .slide-wrapper.progressive{padding-bottom:15em}}#compression-mini .slide code{background-color:#b0e0e6;padding:.1em .25em}#compression-mini .slide .sidenote{margin-top:1rem;font-style:italic}#compression-mini .slide .sidenote::before{content:"*";margin-right:.3ch}.graphic-vis h2{padding:1rem;margin:0;font-size:1.8rem;font-weight:100;max-width:100%;font-family:'Canela Web'}.graphic-vis svg{border:1px dashed #8c8c8c;box-shadow:7px -6px 0 1px #f5f5f5}.ditto{cursor:pointer}.ditto:hover{fill:#000}.odometer line{stroke-width:1px;shape-rendering:crispEdges;stroke:#8c8c8c}#compression{position:relative;margin-bottom:4rem;margin-top:1rem}#compression .prose{float:right;width:24rem}#compression select{font-family:'Atlas Grotesk Web';font-size:.8rem;height:1.5rem;font-weight:500}#compression .reduction-end text{font-family:'Atlas Grotesk Web';font-size:.8rem;font-weight:400}#compression .reduction{font-family:'Atlas Grotesk Web';font-size:.9rem;font-weight:700}#compression .arrow{opacity:.7}.d3-tip{line-height:1;font-weight:700;padding:12px;background:rgba(0,0,0,.8);color:#fff;border-radius:2px;pointer-events:none}.d3-tip:after{box-sizing:border-box;display:inline;font-size:10px;width:100%;line-height:1;color:rgba(0,0,0,.8);position:absolute;pointer-events:none}.d3-tip.n:after{content:"\25BC";margin:-1px 0 0 0;top:100%;left:0;text-align:center}.d3-tip.e:after{content:"\25C0";margin:-4px 0 0 0;top:50%;left:-8px}.d3-tip.s:after{content:"\25B2";margin:0 0 1px 0;top:-8px;left:0;text-align:center}.d3-tip.w:after{content:"\25B6";margin:-4px 0 0 -1px;top:50%;left:100%}#histogram .subtitle,#histogram-full .subtitle{font-size:14px;font-family:'Atlas Grotesk Web';font-weight:400}#histogram .title,#histogram-full .title{font-size:1.8rem;font-family:'Canela Web'}#histogram{margin-top:5rem;margin-bottom:1rem}#histogram-full{margin-top:4rem;margin-bottom:4rem}#overtime-graphic{margin-bottom:8rem}#overtime-graphic .title{display:none;fill:rgba(0,0,0,.8);font-size:1.5rem;font-family:'Canela Web'}#overtime-graphic svg{border:none;box-shadow:none}#overtime-graphic svg .title{alignment-baseline:hanging}#overtime-graphic svg .legend{text-transform:lowercase;font-variant:small-caps}#overtime-graphic svg .grid{stroke-width:1}#overtime-graphic svg .grid line{shape-rendering:crispEdges}@media only screen and (max-width:767px){#overtime-graphic svg .grid line{shape-rendering:unset}}#overtime-graphic svg .grid-minor{stroke:#ddd}#overtime-graphic svg .grid-major{stroke:#aaa}#overtime-graphic svg .trendline{stroke-width:2}#overtime-graphic svg .legendCells text{font-family:'Atlas Grotesk Web';font-size:.7rem;letter-spacing:0;font-weight:400;fill:#b1b1b1}#overtime-graphic .spacer{height:300px}@media only screen and (max-width:767px){#overtime-graphic .spacer{height:360px}}#overtime-graphic .scrolly-slide{border-left:4px solid #4682b4}#overtime-graphic .scrolly-slide p{margin:1rem 0}#overtime-graphic .scrolly-slide.hits{border-left:4px solid orange}#overtime-graphic .xaxis .domain{display:none}#overtime-graphic .xaxis .tick line{stroke:#888}#overtime-graphic .yaxis .domain{display:none}#overtime-graphic .yaxis .tick line{stroke:#888}.scrolly-columns{position:relative;width:100%}.scrolly-columns .graphic-vis{width:60%;position:absolute;top:0;margin-left:40%;transform:translate3d(0,0,0);height:100vh}.scrolly-columns .graphic-prose{width:35%;margin-left:2.5%}.scrolly-columns .scrolly-slide,.scrolly-columns .slide{opacity:.5;background:#f3f3f3;border-left:4px solid rgba(255,2,2,.63);padding:1rem 1.5rem}.scrolly-columns .scrolly-slide blockquote,.scrolly-columns .scrolly-slide p,.scrolly-columns .slide blockquote,.scrolly-columns .slide p{font-family:'Atlas Grotesk Web';font-size:.9rem;line-height:1.5}.scrolly-columns .scrolly-slide blockquote small,.scrolly-columns .scrolly-slide p small,.scrolly-columns .slide blockquote small,.scrolly-columns .slide p small{font-size:.76rem}.scrolly-columns .scrolly-slide.active,.scrolly-columns .slide.active{opacity:1}.scrolly-columns .scrolly-slide.hidden,.scrolly-columns .slide.hidden{opacity:0}@media only screen and (max-width:767px){.scrolly-columns .graphic-vis{width:100%;margin:0}.scrolly-columns .graphic-prose{width:75%;margin:0 auto;position:relative;z-index:100}.scrolly-columns .scrolly-slide,.scrolly-columns .slide{opacity:1}}.scrolly-columns .graphic-vis.is-fixed{position:fixed}.scrolly-columns .graphic-vis.is-bottom{top:auto;bottom:0}.select2-container{box-sizing:border-box;display:inline-block;margin:0;position:relative;vertical-align:middle}.select2-container .select2-selection--single{box-sizing:border-box;cursor:pointer;display:block;height:28px;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}.select2-container .select2-selection--single .select2-selection__rendered{display:block;padding-left:8px;padding-right:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.select2-container .select2-selection--single .select2-selection__clear{position:relative}.select2-container[dir=rtl] .select2-selection--single .select2-selection__rendered{padding-right:8px;padding-left:20px}.select2-container .select2-selection--multiple{box-sizing:border-box;cursor:pointer;display:block;min-height:32px;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}.select2-container .select2-selection--multiple .select2-selection__rendered{display:inline-block;overflow:hidden;padding-left:8px;text-overflow:ellipsis;white-space:nowrap}.select2-container .select2-search--inline{float:left}.select2-container .select2-search--inline .select2-search__field{box-sizing:border-box;border:none;font-size:100%;margin-top:5px;padding:0}.select2-container .select2-search--inline .select2-search__field::-webkit-search-cancel-button{-webkit-appearance:none}.select2-dropdown{background-color:#fff;border:1px solid #aaa;border-radius:4px;box-sizing:border-box;display:block;position:absolute;left:-100000px;width:100%;z-index:1051}.select2-results{display:block}.select2-results__options{list-style:none;margin:0;padding:0}.select2-results__option{padding:6px;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-user-select:none}.select2-results__option[aria-selected]{cursor:pointer}.select2-container--open .select2-dropdown{left:0}.select2-container--open .select2-dropdown--above{border-bottom:none;border-bottom-left-radius:0;border-bottom-right-radius:0}.select2-container--open .select2-dropdown--below{border-top:none;border-top-left-radius:0;border-top-right-radius:0}.select2-search--dropdown{display:block;padding:4px}.select2-search--dropdown .select2-search__field{padding:4px;width:100%;box-sizing:border-box}.select2-search--dropdown .select2-search__field::-webkit-search-cancel-button{-webkit-appearance:none}.select2-search--dropdown.select2-search--hide{display:none}.select2-close-mask{border:0;margin:0;padding:0;display:block;position:fixed;left:0;top:0;min-height:100%;min-width:100%;height:auto;width:auto;opacity:0;z-index:99;background-color:#fff}.select2-hidden-accessible{border:0!important;clip:rect(0 0 0 0)!important;height:1px!important;margin:-1px!important;overflow:hidden!important;padding:0!important;position:absolute!important;width:1px!important}.select2-container--default .select2-selection--single{background-color:#fff;border:1px solid #aaa;border-radius:4px}.select2-container--default .select2-selection--single .select2-selection__rendered{color:#444;line-height:28px}.select2-container--default .select2-selection--single .select2-selection__clear{cursor:pointer;float:right;font-weight:700}.select2-container--default .select2-selection--single .select2-selection__placeholder{color:#999}.select2-container--default .select2-selection--single .select2-selection__arrow{height:26px;position:absolute;top:1px;right:1px;width:20px}.select2-container--default .select2-selection--single .select2-selection__arrow b{border-color:#888 transparent transparent transparent;border-style:solid;border-width:5px 4px 0 4px;height:0;left:50%;margin-left:-4px;margin-top:-2px;position:absolute;top:50%;width:0}.select2-container--default[dir=rtl] .select2-selection--single .select2-selection__clear{float:left}.select2-container--default[dir=rtl] .select2-selection--single .select2-selection__arrow{left:1px;right:auto}.select2-container--default.select2-container--disabled .select2-selection--single{background-color:#eee;cursor:default}.select2-container--default.select2-container--disabled .select2-selection--single .select2-selection__clear{display:none}.select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{border-color:transparent transparent #888 transparent;border-width:0 4px 5px 4px}.select2-container--default .select2-selection--multiple{background-color:#fff;border:1px solid #aaa;border-radius:4px;cursor:text}.select2-container--default .select2-selection--multiple .select2-selection__rendered{box-sizing:border-box;list-style:none;margin:0;padding:0 5px;width:100%}.select2-container--default .select2-selection--multiple .select2-selection__rendered li{list-style:none}.select2-container--default .select2-selection--multiple .select2-selection__placeholder{color:#999;margin-top:5px;float:left}.select2-container--default .select2-selection--multiple .select2-selection__clear{cursor:pointer;float:right;font-weight:700;margin-top:5px;margin-right:10px}.select2-container--default .select2-selection--multiple .select2-selection__choice{background-color:#e4e4e4;border:1px solid #aaa;border-radius:4px;cursor:default;float:left;margin-right:5px;margin-top:5px;padding:0 5px}.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{color:#999;cursor:pointer;display:inline-block;font-weight:700;margin-right:2px}.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{color:#333}.select2-container--default[dir=rtl] .select2-selection--multiple .select2-search--inline,.select2-container--default[dir=rtl] .select2-selection--multiple .select2-selection__choice,.select2-container--default[dir=rtl] .select2-selection--multiple .select2-selection__placeholder{float:right}.select2-container--default[dir=rtl] .select2-selection--multiple .select2-selection__choice{margin-left:5px;margin-right:auto}.select2-container--default[dir=rtl] .select2-selection--multiple .select2-selection__choice__remove{margin-left:2px;margin-right:auto}.select2-container--default.select2-container--focus .select2-selection--multiple{border:solid #000 1px;outline:0}.select2-container--default.select2-container--disabled .select2-selection--multiple{background-color:#eee;cursor:default}.select2-container--default.select2-container--disabled .select2-selection__choice__remove{display:none}.select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple,.select2-container--default.select2-container--open.select2-container--above .select2-selection--single{border-top-left-radius:0;border-top-right-radius:0}.select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple,.select2-container--default.select2-container--open.select2-container--below .select2-selection--single{border-bottom-left-radius:0;border-bottom-right-radius:0}.select2-container--default .select2-search--dropdown .select2-search__field{border:1px solid #aaa}.select2-container--default .select2-search--inline .select2-search__field{background:0 0;border:none;outline:0;box-shadow:none;-webkit-appearance:textfield}.select2-container--default .select2-results>.select2-results__options{max-height:200px;overflow-y:auto}.select2-container--default .select2-results__option[role=group]{padding:0}.select2-container--default .select2-results__option[aria-disabled=true]{color:#999}.select2-container--default .select2-results__option[aria-selected=true]{background-color:#ddd}.select2-container--default .select2-results__option .select2-results__option{padding-left:1em}.select2-container--default .select2-results__option .select2-results__option .select2-results__group{padding-left:0}.select2-container--default .select2-results__option .select2-results__option .select2-results__option{margin-left:-1em;padding-left:2em}.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option{margin-left:-2em;padding-left:3em}.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{margin-left:-3em;padding-left:4em}.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{margin-left:-4em;padding-left:5em}.select2-container--default .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option .select2-results__option{margin-left:-5em;padding-left:6em}.select2-container--default .select2-results__option--highlighted[aria-selected]{background-color:#5897fb;color:#fff}.select2-container--default .select2-results__group{cursor:default;display:block;padding:6px}.select2-container--classic .select2-selection--single{background-color:#f7f7f7;border:1px solid #aaa;border-radius:4px;outline:0;background-image:linear-gradient(to bottom,#fff 50%,#eee 100%);background-repeat:repeat-x}.select2-container--classic .select2-selection--single:focus{border:1px solid #5897fb}.select2-container--classic .select2-selection--single .select2-selection__rendered{color:#444;line-height:28px}.select2-container--classic .select2-selection--single .select2-selection__clear{cursor:pointer;float:right;font-weight:700;margin-right:10px}.select2-container--classic .select2-selection--single .select2-selection__placeholder{color:#999}.select2-container--classic .select2-selection--single .select2-selection__arrow{background-color:#ddd;border:none;border-left:1px solid #aaa;border-top-right-radius:4px;border-bottom-right-radius:4px;height:26px;position:absolute;top:1px;right:1px;width:20px;background-image:linear-gradient(to bottom,#eee 50%,#ccc 100%);background-repeat:repeat-x}.select2-container--classic .select2-selection--single .select2-selection__arrow b{border-color:#888 transparent transparent transparent;border-style:solid;border-width:5px 4px 0 4px;height:0;left:50%;margin-left:-4px;margin-top:-2px;position:absolute;top:50%;width:0}.select2-container--classic[dir=rtl] .select2-selection--single .select2-selection__clear{float:left}.select2-container--classic[dir=rtl] .select2-selection--single .select2-selection__arrow{border:none;border-right:1px solid #aaa;border-radius:0;border-top-left-radius:4px;border-bottom-left-radius:4px;left:1px;right:auto}.select2-container--classic.select2-container--open .select2-selection--single{border:1px solid #5897fb}.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow{background:0 0;border:none}.select2-container--classic.select2-container--open .select2-selection--single .select2-selection__arrow b{border-color:transparent transparent #888 transparent;border-width:0 4px 5px 4px}.select2-container--classic.select2-container--open.select2-container--above .select2-selection--single{border-top:none;border-top-left-radius:0;border-top-right-radius:0;background-image:linear-gradient(to bottom,#fff 0,#eee 50%);background-repeat:repeat-x}.select2-container--classic.select2-container--open.select2-container--below .select2-selection--single{border-bottom:none;border-bottom-left-radius:0;border-bottom-right-radius:0;background-image:linear-gradient(to bottom,#eee 50%,#fff 100%);background-repeat:repeat-x}.select2-container--classic .select2-selection--multiple{background-color:#fff;border:1px solid #aaa;border-radius:4px;cursor:text;outline:0}.select2-container--classic .select2-selection--multiple:focus{border:1px solid #5897fb}.select2-container--classic .select2-selection--multiple .select2-selection__rendered{list-style:none;margin:0;padding:0 5px}.select2-container--classic .select2-selection--multiple .select2-selection__clear{display:none}.select2-container--classic .select2-selection--multiple .select2-selection__choice{background-color:#e4e4e4;border:1px solid #aaa;border-radius:4px;cursor:default;float:left;margin-right:5px;margin-top:5px;padding:0 5px}.select2-container--classic .select2-selection--multiple .select2-selection__choice__remove{color:#888;cursor:pointer;display:inline-block;font-weight:700;margin-right:2px}.select2-container--classic .select2-selection--multiple .select2-selection__choice__remove:hover{color:#555}.select2-container--classic[dir=rtl] .select2-selection--multiple .select2-selection__choice{float:right}.select2-container--classic[dir=rtl] .select2-selection--multiple .select2-selection__choice{margin-left:5px;margin-right:auto}.select2-container--classic[dir=rtl] .select2-selection--multiple .select2-selection__choice__remove{margin-left:2px;margin-right:auto}.select2-container--classic.select2-container--open .select2-selection--multiple{border:1px solid #5897fb}.select2-container--classic.select2-container--open.select2-container--above .select2-selection--multiple{border-top:none;border-top-left-radius:0;border-top-right-radius:0}.select2-container--classic.select2-container--open.select2-container--below .select2-selection--multiple{border-bottom:none;border-bottom-left-radius:0;border-bottom-right-radius:0}.select2-container--classic .select2-search--dropdown .select2-search__field{border:1px solid #aaa;outline:0}.select2-container--classic .select2-search--inline .select2-search__field{outline:0;box-shadow:none}.select2-container--classic .select2-dropdown{background-color:#fff;border:1px solid transparent}.select2-container--classic .select2-dropdown--above{border-bottom:none}.select2-container--classic .select2-dropdown--below{border-top:none}.select2-container--classic .select2-results>.select2-results__options{max-height:200px;overflow-y:auto}.select2-container--classic .select2-results__option[role=group]{padding:0}.select2-container--classic .select2-results__option[aria-disabled=true]{color:grey}.select2-container--classic .select2-results__option--highlighted[aria-selected]{background-color:#3875d7;color:#fff}.select2-container--classic .select2-results__group{cursor:default;display:block;padding:6px}.select2-container--classic.select2-container--open .select2-dropdown{border-color:#5897fb}.tk-pt-serif{font-family:Georgia,Times,serif}.loaded-pt-serif .tk-pt-serif{font-family:'PT Serif',Georgia,Times,serif}.tk-roboto{font-family:Helvetica,Arial,sans-serif}.loaded-roboto .tk-roboto{font-family:Roboto,Helvetica,Arial,sans-serif}.tk-Publico Text Web{font-family:'Canela Web'}.loaded-Publico Text Web .tk-Publico Text Web{font-family:'Atlas Grotesk Web','Canela Web'}body,html{background-color:#fff;color:#2a2a2a;margin:0;padding:0}html{overflow:auto}body{width:100%;overflow:hidden}p{line-height:1.6;font-family:'Publico Text Web';margin:0}.prose a,p a{text-decoration:underline;color:inherit}.prose a:hover,p a:hover{color:red}.prose{margin:1rem 0;max-width:40rem;margin:0 auto;margin-bottom:1.3em;font-size:1rem;line-height:1.7;font-weight:400;color:#000}@media screen and (max-width:450px){.prose{width:90%}}.prose li{margin-bottom:1rem}.row blockquote p{font-family:'Atlas Grotesk Web';font-size:.85rem}.prose-big{font-size:1.2rem;line-height:1.9;font-weight:100;margin-bottom:1rem}.prose small{font-size:.8rem;line-height:1}h1{font-size:32px;margin-bottom:30px}h2{margin:0 auto;padding:1rem;font-size:1.3rem;font-family:'Atlas Grotesk Web';font-weight:500;max-width:40rem;color:rgba(0,0,0,.9)}h2.scrolly{padding:1rem;margin:0;font-size:1.8rem;font-weight:100;max-width:100%;font-family:'Canela Web'}.graphic{margin:0 auto;width:80%}@media only screen and (max-width:767px){.graphic{width:100%}}#artist-circles{margin-top:4rem}.graphic.graphic-fullwidth{width:100%}.prose-pull-quote{margin:0 auto;margin-top:3rem;margin-bottom:2rem;max-width:50rem}@media only screen and (max-width:767px){.prose-pull-quote{width:90%}}.col-xs-5{width:50%}.flex-box{-webkit-display:flex;display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}footer p{font-family:'Atlas Grotesk Web'}small{font-size:1rem}button{padding:6px;margin:6px;border-radius:5px}#discog-widget{margin-top:5rem;margin-bottom:1rem}#discog-widget h1{font-family:'Canela Web';font-weight:100;font-size:1.8rem;text-transform:capitalize}@media only screen and (max-width:767px){#discog-widget h1{width:90%;margin:0 auto}}#discog-widget h1 .select2{max-width:13em;margin-left:2rem;margin-right:.6rem;font-family:'Atlas Grotesk Web';font-size:.8rem;color:#000;font-weight:600}@media only screen and (max-width:767px){#discog-widget h1 .select2{margin-top:1rem;margin-left:0}}#discog-widget h1 .select2 .select2-selection--single{margin-bottom:6px;color:#000}#discog-widget h1 .select2 .select2-selection--single .select2-selection__rendered{color:#000}.spacer{height:300px}.tick text{font-family:'Atlas Grotesk Web';font-weight:500;font-size:.65rem}.vline text{font-family:'Atlas Grotesk Web';pointer-events:none;font-weight:500;letter-spacing:-.02rem}.xaxis-label{font-family:'Atlas Grotesk Web';font-size:.75rem;font-weight:500;text-transform:uppercase;fill:#777}.artists-bubble-text{font-family:'Atlas Grotesk Web';font-size:.6rem;font-weight:600}.songlabel{font-family:'Atlas Grotesk Web';font-size:.6rem;font-weight:600}.decade-controls{display:-ms-flexbox;display:flex;margin:0 auto;font-family:'Atlas Grotesk Web';-ms-flex-pack:center;justify-content:center;margin-top:1rem;margin-bottom:1rem}.decade-controls a.decade{padding:.2rem .5rem;font-size:.8rem;cursor:pointer;text-align:center;border:1px solid rgba(127,125,156,.54);margin-left:-1px}.decade-controls a.decade.active{background-color:#f5f5f5;font-weight:500;color:#000;box-shadow:inset 0 3px 5px rgba(0,0,0,.125);border-color:#adadad}blockquote{border-left:5px solid #ececec;padding-left:1rem;margin:1rem 0}.small{font-size:.85rem;font-family:'Atlas Grotesk Web';line-height:1.4;margin-bottom:1.5rem}.title-nice{margin:0;padding:1rem 0;font-size:1.8rem;font-weight:100;max-width:100%;font-family:'Canela Web';text-align:center}.title-sub{font-size:.85rem;font-family:'Atlas Grotesk Web';font-weight:400;text-align:center;margin:0}.front-curve{border-top-left-radius:5px;border-bottom-left-radius:5px}.back-curve{border-top-right-radius:5px;border-bottom-right-radius:5px}#discog-examples{list-style-type:square}#discog-examples a{cursor:pointer}@media screen and (max-width:450px){#discog-examples li{width:90%}}.bottom-spacer{margin-bottom:5rem}.artist-tooltip{background:#fff;padding:7px;box-shadow:2px 2px 10px rgba(0,0,0,.1);pointer-events:none;text-align:left;border-radius:3px}.artist-tooltip div{color:#000;font-family:'Atlas Grotesk Web';font-size:.7rem;font-weight:500;text-transform:capitalize;line-height:1.8}.d3-tip{background:#fff;padding:7px;box-shadow:2px 2px 10px rgba(0,0,0,.1);pointer-events:none;text-align:left;border-radius:3px}.d3-tip div{color:#000;font-family:'Atlas Grotesk Web';font-size:.7rem;font-weight:500;text-transform:capitalize;line-height:1.8}.d3-tip.n::after{content:""}.block-cite{margin-top:1rem}#topsongs{width:auto;margin:4rem auto;background-color:#fff;font-family:'Atlas Grotesk Web';padding:0 1rem;max-width:55rem}#topsongs table{border-collapse:collapse;width:100%}#topsongs td{font-size:.9rem;padding-top:0;padding-bottom:0}@media screen and (max-width:450px){#topsongs td{font-size:.7rem}}#topsongs a{cursor:pointer}#topsongs .expander-container{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center;margin-top:1rem}#topsongs .expander-container a.expander{font-weight:500;color:#000;font-size:.8rem;padding:.3rem .5rem;border:1px solid #adadad;border-radius:3px}#topsongs .expander-container a.expander:hover{background-color:#eee}#topsongs th{text-align:left;font-family:'Atlas Grotesk Web';font-size:.8rem;font-weight:900;letter-spacing:0;line-height:1.5rem}#topsongs tr th:nth-child(1){width:2rem}#topsongs tr th:nth-child(3){width:45%}#topsongs tr{border-bottom:1px solid #999}#topsongs thead tr{border-bottom:1px solid #000}#topsongs .bar{padding-left:10px;height:1.5rem}#topsongs .bar span{color:#fff;font-size:.7rem;line-height:2;font-weight:300}#topsongs .track .title{font-weight:700}@media only screen and (min-width:25em){.hack{display:none}}@media only screen and (min-width:40em){.hack{display:none}}@media only screen and (min-width:50em){.hack{display:none}}@media only screen and (min-width:60em){.hack{display:none}}</style>
+	
+	<style>@font-face{font-family:'PT Serif';font-style:normal;font-weight:400;src:local('PT Serif'),local('PTSerif-Regular')}@font-face{font-family:'PT Serif';font-style:normal;font-weight:700;src:local('PT Serif Bold'),local('PTSerif-Bold'),url(assets/fonts/pt-serif-v8-latin-700.woff2) format('woff2'),url(assets/fonts/pt-serif-v8-latin-700.woff) format('woff')}@font-face{font-family:Roboto;font-style:normal;font-weight:400;src:local('Roboto'),local('Roboto-Regular'),url(assets/fonts/roboto-v15-latin-regular.woff2) format('woff2'),url(assets/fonts/roboto-v15-latin-regular.woff2) format('woff')}@font-face{font-family:Roboto;font-style:normal;font-weight:700;src:local('Roboto Bold'),local('Roboto-Bold'),url(assets/fonts/roboto-v15-latin-700.woff2) format('woff2'),url(assets/fonts/roboto-v15-latin-700.woff2) format('woff')}@font-face{font-family:'Atlas Grotesk Web';src:url(assets/fonts/AtlasGrotesk-Medium-Web.eot);src:url(assets/fonts/AtlasGrotesk-Medium-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/AtlasGrotesk-Medium-Web.woff2) format('woff2'),url(assets/fonts/AtlasGrotesk-Medium-Web.woff2) format('woff');font-weight:500;font-style:normal;font-stretch:normal}@font-face{font-family:'Atlas Grotesk Web';src:url(assets/fonts/AtlasGrotesk-Regular-Web.eot);src:url(assets/fonts/AtlasGrotesk-Regular-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/AtlasGrotesk-Regular-Web.woff2) format('woff2'),url(assets/fonts/AtlasGrotesk-Regular-Web.woff2) format('woff');font-weight:400;font-style:normal;font-stretch:normal}@font-face{font-family:'Atlas Grotesk Web';src:url(assets/fonts/AtlasGrotesk-Light-Web.eot);src:url(assets/fonts/AtlasGrotesk-Light-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/AtlasGrotesk-Light-Web.woff2) format('woff2'),url(assets/fonts/AtlasGrotesk-Light-Web.woff2) format('woff');font-weight:300;font-style:normal;font-stretch:normal}@font-face{font-family:'Canela Web';src:url(assets/fonts/Canela-Bold-Web.eot);src:url(assets/fonts/Canela-Bold-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/Canela-Light-Web.woff2) format('woff2'),url(assets/fonts/Canela-Light-Web.woff2) format('woff');font-weight:700;font-style:normal;font-stretch:normal}@font-face{font-family:'Canela Web';src:url(assets/fonts/Canela-Light-Web.eot);src:url(assets/fonts/Canela-Light-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/Canela-Light-Web.woff2) format('woff2'),url(assets/fonts/Canela-Light-Web.woff2) format('woff');font-weight:300;font-style:normal;font-stretch:normal}@font-face{font-family:'Publico Text Web';src:url(assets/fonts/PublicoText-Italic-Web.eot);src:url(assets/fonts/PublicoText-Italic-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/PublicoText-Italic-Web.woff2) format('woff2'),url(assets/fonts/PublicoText-Italic-Web.woff2) format('woff');font-weight:400;font-style:italic;font-stretch:normal}@font-face{font-family:'Publico Text Web';src:url(assets/fonts/PublicoText-Roman-Web.eot);src:url(assets/fonts/PublicoText-Roman-Web.eot?#iefix) format('embedded-opentype'),url(assets/fonts/PublicoText-Roman-Web.woff2) format('woff2'),url(assets/fonts/PublicoText-Roman-Web.woff2) format('woff');font-weight:400;font-style:normal;font-stretch:normal}</style>
+
+		<script>!function(e){e.$fuse$=e,e.pkg("default",{},function(e){e.file("critical.js",function(e,t,n,o,i){"use strict";var r=t("./utils/load-font"),a=[{family:"PT Serif",weight:400},{family:"PT Serif",weight:700}],s=[{family:"Roboto",weight:400},{family:"Roboto",weight:700}];(0,r.loadFontGroup)(a),(0,r.loadFontGroup)(s)}),e.file("utils/load-font.js",function(e,t,n,o,i){"use strict";function r(e){var t=e.toLowerCase().replace(/ /g,"-"),n="loaded-"+t;(0,l.addClass)(d,n)}function a(e){console.error(e)}function s(e){var t=e.family,n=e.weight;e.style;new f.default(t,{weight:n}).load(null,p).then(function(){return r(e)}).catch(a)}function u(e){var t=e.map(function(e){return new Promise(function(t,n){var o=e.family,i=e.weight,r=e.style,a=void 0===r?"normal":r;return new f.default(o,{weight:i,style:a}).load(null,p).then(function(){return t(o)}).catch(function(e){return n(e)})})});Promise.all(t).then(function(e){return r(e[0])}).catch(a)}Object.defineProperty(e,"__esModule",{value:!0}),e.loadFontGroup=e.loadFont=void 0,t("promis");var c=t("fontfaceobserver"),f=function(e){return e&&e.__esModule?e:{default:e}}(c),l=t("./dom"),d=document.documentElement,p=5e3;e.loadFont=s,e.loadFontGroup=u}),e.file("utils/dom.js",function(e,t,n,o,i){"use strict";function r(e){if(Array.isArray(e)){for(var t=0,n=Array(e.length);t<e.length;t++)n[t]=e[t];return n}return Array.from(e)}function a(e){return document.querySelector(e)}function s(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1]:document;return[].concat(r(t.querySelectorAll(e)))}function u(e,t){return[].concat(r(e.querySelectorAll(t)))}function c(e,t){e.classList?e.classList.remove(t):e.className=e.className.replace(new RegExp("(^|\\b)"+t.split(" ").join("|")+"(\\b|$)","gi")," ")}function f(e,t){e.classList?e.classList.add(t):e.className=e.className+" "+t}function l(e,t){return e.classList?e.classList.contains(t):new RegExp("(^| )"+t+"( |$)","gi").test(e.className)}function d(e,t){t=t||0;var n=e.getBoundingClientRect().top+t,o=window.pageYOffset||document.documentElement.scrollTop,i=o+n;window.scrollTo(0,i)}Object.defineProperty(e,"__esModule",{value:!0}),e.select=a,e.selectAll=s,e.find=u,e.removeClass=c,e.addClass=f,e.hasClass=l,e.jumpTo=d})}),e.pkg("promis",{},function(e){return e.file("promise.js",function(e,t,n,o,i){!function(){"use strict";function e(e){l.push(e),1==l.length&&f()}function t(){for(;l.length;)l[0](),l.shift()}function n(e){this.a=d,this.b=void 0,this.f=[];var t=this;try{e(function(e){r(t,e)},function(e){a(t,e)})}catch(e){a(t,e)}}function o(e){return new n(function(t,n){n(e)})}function i(e){return new n(function(t){t(e)})}function r(e,t){if(e.a==d){if(t==e)throw new TypeError;var n=!1;try{var o=t&&t.then;if(null!=t&&"object"==typeof t&&"function"==typeof o)return void o.call(t,function(t){n||r(e,t),n=!0},function(t){n||a(e,t),n=!0})}catch(t){return void(n||a(e,t))}e.a=0,e.b=t,s(e)}}function a(e,t){if(e.a==d){if(t==e)throw new TypeError;e.a=1,e.b=t,s(e)}}function s(t){e(function(){if(t.a!=d)for(;t.f.length;){var e=t.f.shift(),n=e[0],o=e[1],i=e[2],e=e[3];try{0==t.a?i("function"==typeof n?n.call(void 0,t.b):t.b):1==t.a&&("function"==typeof o?i(o.call(void 0,t.b)):e(t.b))}catch(t){e(t)}}})}function u(e){return new n(function(t,n){var o=0,r=[];0==e.length&&t(r);for(var a=0;a<e.length;a+=1)i(e[a]).c(function(n){return function(i){r[n]=i,(o+=1)==e.length&&t(r)}}(a),n)})}function c(e){return new n(function(t,n){for(var o=0;o<e.length;o+=1)i(e[o]).c(t,n)})}var f,l=[];f=function(){setTimeout(t)};var d=2;n.prototype.g=function(e){return this.c(void 0,e)},n.prototype.c=function(e,t){var o=this;return new n(function(n,i){o.f.push([e,t,n,i]),s(o)})},window.Promise||(window.Promise=n,window.Promise.resolve=i,window.Promise.reject=o,window.Promise.race=c,window.Promise.all=u,window.Promise.prototype.then=n.prototype.c,window.Promise.prototype.catch=n.prototype.g)}()}),e.entry="promise.js"}),e.pkg("fontfaceobserver",{},function(e){return e.file("fontfaceobserver.standalone.js",function(e,t,n,o,i){!function(){function e(e,t){document.addEventListener?e.addEventListener("scroll",t,!1):e.attachEvent("scroll",t)}function t(e){document.body?e():document.addEventListener?document.addEventListener("DOMContentLoaded",function t(){document.removeEventListener("DOMContentLoaded",t),e()}):document.attachEvent("onreadystatechange",function t(){"interactive"!=document.readyState&&"complete"!=document.readyState||(document.detachEvent("onreadystatechange",t),e())})}function o(e){this.a=document.createElement("div"),this.a.setAttribute("aria-hidden","true"),this.a.appendChild(document.createTextNode(e)),this.b=document.createElement("span"),this.c=document.createElement("span"),this.h=document.createElement("span"),this.f=document.createElement("span"),this.g=-1,this.b.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.c.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.f.style.cssText="max-width:none;display:inline-block;position:absolute;height:100%;width:100%;overflow:scroll;font-size:16px;",this.h.style.cssText="display:inline-block;width:200%;height:200%;font-size:16px;max-width:none;",this.b.appendChild(this.h),this.c.appendChild(this.f),this.a.appendChild(this.b),this.a.appendChild(this.c)}function i(e,t){e.a.style.cssText="max-width:none;min-width:20px;min-height:20px;display:inline-block;overflow:hidden;position:absolute;width:auto;margin:0;padding:0;top:-999px;left:-999px;white-space:nowrap;font-synthesis:none;font:"+t+";"}function r(e){var t=e.a.offsetWidth,n=t+100;return e.f.style.width=n+"px",e.c.scrollLeft=n,e.b.scrollLeft=e.b.scrollWidth+100,e.g!==t&&(e.g=t,!0)}function a(t,n){function o(){var e=i;r(e)&&e.a.parentNode&&n(e.g)}var i=t;e(t.b,o),e(t.c,o),r(t)}function s(e,t){var n=t||{};this.family=e,this.style=n.style||"normal",this.weight=n.weight||"normal",this.stretch=n.stretch||"normal"}function u(){if(null===p)if(c()&&/Apple/.test(window.navigator.vendor)){var e=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))(?:\.([0-9]+))/.exec(window.navigator.userAgent);p=!!e&&603>parseInt(e[1],10)}else p=!1;return p}function c(){return null===m&&(m=!!document.fonts),m}function f(){if(null===h){var e=document.createElement("div");try{e.style.font="condensed 100px sans-serif"}catch(e){}h=""!==e.style.font}return h}function l(e,t){return[e.style,e.weight,f()?e.stretch:"","100px",t].join(" ")}var d=null,p=null,h=null,m=null;s.prototype.load=function(e,n){var r=this,s=e||"BESbswy",f=0,p=n||3e3,h=(new Date).getTime();return new Promise(function(e,n){if(c()&&!u()){var m=new Promise(function(e,t){function n(){(new Date).getTime()-h>=p?t():document.fonts.load(l(r,'"'+r.family+'"'),s).then(function(t){1<=t.length?e():setTimeout(n,25)},function(){t()})}n()}),v=new Promise(function(e,t){f=setTimeout(t,p)});Promise.race([v,m]).then(function(){clearTimeout(f),e(r)},function(){n(r)})}else t(function(){function t(){var t;(t=-1!=w&&-1!=g||-1!=w&&-1!=y||-1!=g&&-1!=y)&&((t=w!=g&&w!=y&&g!=y)||(null===d&&(t=/AppleWebKit\/([0-9]+)(?:\.([0-9]+))/.exec(window.navigator.userAgent),d=!!t&&(536>parseInt(t[1],10)||536===parseInt(t[1],10)&&11>=parseInt(t[2],10))),t=d&&(w==b&&g==b&&y==b||w==x&&g==x&&y==x||w==_&&g==_&&y==_)),t=!t),t&&(j.parentNode&&j.parentNode.removeChild(j),clearTimeout(f),e(r))}function u(){if((new Date).getTime()-h>=p)j.parentNode&&j.parentNode.removeChild(j),n(r);else{var e=document.hidden;!0!==e&&void 0!==e||(w=c.a.offsetWidth,g=m.a.offsetWidth,y=v.a.offsetWidth,t()),f=setTimeout(u,50)}}var c=new o(s),m=new o(s),v=new o(s),w=-1,g=-1,y=-1,b=-1,x=-1,_=-1,j=document.createElement("div");j.dir="ltr",i(c,l(r,"sans-serif")),i(m,l(r,"serif")),i(v,l(r,"monospace")),j.appendChild(c.a),j.appendChild(m.a),j.appendChild(v.a),document.body.appendChild(j),b=c.a.offsetWidth,x=m.a.offsetWidth,_=v.a.offsetWidth,u(),a(c,function(e){w=e,t()}),i(c,l(r,'"'+r.family+'",sans-serif')),a(m,function(e){g=e,t()}),i(m,l(r,'"'+r.family+'",serif')),a(v,function(e){y=e,t()}),i(v,l(r,'"'+r.family+'",monospace'))})})},void 0!==n?n.exports=s:(window.FontFaceObserver=s,window.FontFaceObserver.prototype.load=s.prototype.load)}()}),e.entry="fontfaceobserver.standalone.js"}),e.import("default/critical.js"),e.main("default/critical.js")}(function(e){if(e.FuseBox)return e.FuseBox;var t="undefined"!=typeof window&&window.navigator;t&&(window.global=window),e=t&&"undefined"==typeof __fbx__dnm__?e:module.exports;var n=t?window.__fsbx__=window.__fsbx__||{}:global.$fsbx=global.$fsbx||{};t||(global.require=require);var o=n.p=n.p||{},i=n.e=n.e||{},r=function(e){var n=e.charCodeAt(0),o=e.charCodeAt(1);if((t||58!==o)&&(n>=97&&n<=122||64===n)){if(64===n){var i=e.split("/"),r=i.splice(2,i.length).join("/");return[i[0]+"/"+i[1],r||void 0]}var a=e.indexOf("/");if(a===-1)return[e];return[e.substring(0,a),e.substring(a+1)]}},a=function(e){return e.substring(0,e.lastIndexOf("/"))||"./"},s=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];for(var n=[],o=0,i=arguments.length;o<i;o++)n=n.concat(arguments[o].split("/"));for(var r=[],o=0,i=n.length;o<i;o++){var a=n[o];a&&"."!==a&&(".."===a?r.pop():r.push(a))}return""===n[0]&&r.unshift(""),r.join("/")||(r.length?"/":".")},u=function(e){var t=e.match(/\.(\w{1,})$/);if(t){return t[1]?e:e+".js"}return e+".js"},c=function(e){if(t){var n,o=document,i=o.getElementsByTagName("head")[0];/\.css$/.test(e)?(n=o.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=e):(n=o.createElement("script"),n.type="text/javascript",n.src=e,n.async=!0),i.insertBefore(n,i.firstChild)}},f=function(e,t){for(var n in e)e.hasOwnProperty(n)&&t(n,e[n])},l=function(e){return{server:require(e)}},d=function(e,n){var i=n.path||"./",a=n.pkg||"default",c=r(e);if(c&&(i="./",a=c[0],n.v&&n.v[a]&&(a=a+"@"+n.v[a]),e=c[1]),e)if(126===e.charCodeAt(0))e=e.slice(2,e.length),i="./";else if(!t&&(47===e.charCodeAt(0)||58===e.charCodeAt(1)))return l(e);var f=o[a];if(!f){if(t)throw'Package was not found "'+a+'"';return l(a+(e?"/"+e:""))}e||(e="./"+f.s.entry);var d,p=s(i,e),h=u(p),m=f.f[h];return!m&&h.indexOf("*")>-1&&(d=h),m||d||(h=s(p,"/","index.js"),m=f.f[h],m||(h=p+".js",m=f.f[h]),m||(m=f.f[p+".jsx"]),m||(h=p+"/index.jsx",m=f.f[h])),{file:m,wildcard:d,pkgName:a,versions:f.v,filePath:p,validPath:h}},p=function(e,n){if(!t)return n(/\.(js|json)$/.test(e)?global.require(e):"");var o;o=new XMLHttpRequest,o.onreadystatechange=function(){if(4==o.readyState)if(200==o.status){var t=o.getResponseHeader("Content-Type"),i=o.responseText;/json/.test(t)?i="module.exports = "+i:/javascript/.test(t)||(i="module.exports = "+JSON.stringify(i));var r=s("./",e);v.dynamic(r,i),n(v.import(e,{}))}else console.error(e+" was not found upon request"),n(void 0)},o.open("GET",e,!0),o.send()},h=function(e,t){var n=i[e];if(n)for(var o in n){var r=n[o].apply(null,t);if(r===!1)return!1}},m=function(e,n){if(void 0===n&&(n={}),58===e.charCodeAt(4)||58===e.charCodeAt(5))return c(e);var i=d(e,n);if(i.server)return i.server;var r=i.file;if(i.wildcard){var s=new RegExp(i.wildcard.replace(/\*/g,"@").replace(/[.?*+^$[\]\\(){}|-]/g,"\\$&").replace(/@/g,"[a-z0-9$_-]+"),"i"),u=o[i.pkgName];if(u){var f={};for(var l in u.f)s.test(l)&&(f[l]=m(i.pkgName+"/"+l));return f}}if(!r){var v="function"==typeof n;if(h("async",[e,n])===!1)return;return p(e,function(e){if(v)return n(e)})}var w=i.validPath,g=i.pkgName;if(r.locals&&r.locals.module)return r.locals.module.exports;var y=r.locals={},b=a(w);y.exports={},y.module={exports:y.exports},y.require=function(e,t){return m(e,{pkg:g,path:b,v:i.versions})},y.require.main={filename:t?"./":global.require.main.filename,paths:t?[]:global.require.main.paths};var x=[y.module.exports,y.require,y.module,w,b,g];return h("before-import",x),r.fn.apply(0,x),h("after-import",x),y.module.exports},v=function(){function n(){}return n.global=function(e,n){var o=t?window:global;return void 0===n?o[e]:void(o[e]=n)},n.import=function(e,t){return m(e,t)},n.on=function(e,t){i[e]=i[e]||[],i[e].push(t)},n.exists=function(e){try{return void 0!==d(e,{}).file}catch(e){return!1}},n.remove=function(e){var t=d(e,{}),n=o[t.pkgName];n&&n.f[t.validPath]&&delete n.f[t.validPath]},n.main=function(e){return this.mainFile=e,n.import(e,{})},n.expose=function(t){for(var n in t)!function(n){var o=t[n],i=o.alias,r=m(o.pkg);"*"===i?f(r,function(t,n){return e[t]=n}):"object"==typeof i?f(i,function(t,n){return e[n]=r[t]}):e[i]=r}(n)},n.dynamic=function(t,n,o){var i=o&&o.pkg||"default";this.pkg(i,{},function(o){o.file(t,function(t,o,i,r,a){new Function("__fbx__dnm__","exports","require","module","__filename","__dirname","__root__",n)(!0,t,o,i,r,a,e)})})},n.flush=function(e){var t=o.default;for(var n in t.f){if(!e||e(n)){delete t.f[n].locals}}},n.pkg=function(e,t,n){if(o[e])return n(o[e].s);var i=o[e]={},r=i.f={};return i.v=t,n(i.s={file:function(e,t){r[e]={fn:t}}})},n.addPlugin=function(e){this.plugins.push(e)},n}();return v.packages=o,v.isBrowser=void 0!==t,v.isServer=!t,v.plugins=[],e.FuseBox=v}(this));</script>
+	
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	
+		ga('create', 'UA-90567923-1', 'auto');
+		ga('send', 'pageview');
+	</script>
+	</head>
+<body class="tk-pt-serif">
+
+	<header class="tk-roboto">
+		
+		<p class="opening-sub">Applied Data Analysis 2017
+		</p>
+		<p class="opening-title"><i>My Way</i> of seeing covers
+		</p>
+		<p class="byline">By <a href="https://github.com/padesplaces/ada2017/tree/master/project">Pierre-Antoine Desplaces, Anaïs Ladoy, Lou Richard</a>
+		</p>
+	</header>
+	<p class="prose">Everybody knows the definition of a cover song (and  can cite several of them) as a new performance of a previously recorded song, by someone other than the original artist or composer.
+	Something that is quite unknown is how the concept of cover version started. Actually, this phenomena started in the 1950s when record companies tried to reach out to more people by a way of reproducing original songs such that those were more appealing to a particular demography. If we go back to the racial segregation period in the United States, there were black radio stations and white radio stations. Covers versions were recorded by White artists and then diffused on white radio stations, without acknowledgement or financial compensation for the original (black) artists and it was clearly a "racist tool" as said the singer-songwriter Don McLean.
+	</p>
+	
+	<p class="prose">Fortunately, the mentality changed and cover versions are nowadays used as a revival of old songs, sometimes with a radically different style, in a different language or with lyrics added for the case of instrumental compositions.
+	Even if it's becomes a very profitable business for music industry, the goal of a cover version is still to spread a part of musical history to younger generations or to other cultures around the world.
+	</p>
+	
+	<h2>Our goal</h2>
+	
+	<p class="prose">Through a spatial and time analysis of cover songs history, our goal is to explore cultural or social underlying patterns and how it is diffused in a globalized world.</p>
+	
+	<div id="histogram" class="graphic">
+	    <h2 class="title-nice">Time Analysis of covers</h2>
+	    <p class="title-sub">
+	        Distribution of 17,000 songs from 1900 to 2017.
+	    </p>
+
+	    <svg width="980" height="400">
+	    <g transform="translate(20 20">
+	    	<g transform="translate(0,330)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">...
+	    		<path class="domain" stroke="#000" d="M0.5, 0V0.5H940.5V0"></path>
+	    		<g class="tick" opacity="1" transform="translate(50,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1900</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(125,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1910</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(200,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1920</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(275,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1930</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(350,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1940</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(425,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1950</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(500,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1960</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(575,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1970</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(650,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1980</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(725,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">1990</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(800,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">2000</text>
+	    		</g>
+	    		<g class="tick" opacity="1" transform="translate(875,0)">
+	    			<line stroke="#000" y2="4" x1="0.5" x2="0.5"></line>
+	    			<text fill="#000" y="10" x="0.5" dy="0.71em">2010</text>
+	    		</g>
+	    	</g>
+	    	<text transform="translate(470, 380)" text-anchor="middle" class="xaxis-label">Repartition</text>
+	    	<rect class="bar" fill="#fde725" y="318.0134529147982" x="44.761904761904766" width="13.92063492063491" height="11.986547085201794"></rect>
+	    	<rect class="bar" fill="#fde725" y="303.80717488789236" x="59.68253968253968" width="13.920634920634903" height="26.192825112107624"></rect>
+	    	<rect class="bar" fill="#f4e61e" y="289.60089686098655" x="74.60317460317458" width="13.920634920634953" height="40.39910313901345"></rect>
+	    	<rect class="bar" fill="#e5e419" y="267.84753363228697" x="89.52380952380953" width="13.92063492063491" height="62.152466367713004"></rect>
+	    	<rect class="bar" fill="#d8e219" y="245.65022421524662" x="104.44444444444444" width="13.92063492063491" height="84.34977578475336"></rect>
+	    	<rect class="bar" fill="#cae11f" y="230.11210762331837" x="119.36507936507935" width="13.920634920634924" height="99.88789237668162"></rect>
+	    	<rect class="bar" fill="#bddf26" y="228.33632286995515" x="134.28571428571428" width="13.92063492063491" height="101.66367713004485"></rect>
+	    	<rect class="bar" fill="#addc30" y="220.34529147982062" x="149.2063492063492" width="13.920634920634967" height="109.65470852017937"></rect>
+	    	<rect class="bar" fill="#a0da39" y="182.16591928251123" x="164.12698412698415" width="13.920634920634882" height="147.83408071748877"></rect>
+	    	<rect class="bar" fill="#93d741" y="169.73542600896863" x="179.04761904761904" width="13.920634920634882" height="160.26457399103137"></rect>
+	    	<rect class="bar" fill="#86d549" y="148.4260089686099" x="193.96825396825392" width="13.920634920634967" height="181.5739910313901"></rect>
+	    	<rect class="bar" fill="#77d153" y="124.8968609865471" x="208.88888888888889" width="13.92063492063491" height="205.1031390134529"></rect>
+	    	<rect class="bar" fill="#6ccd5a" y="107.5829596412556" x="223.8095238095238" width="13.920634920634882" height="222.4170403587444"></rect>
+	    	<rect class="bar" fill="#60ca60" y="98.26008968609864" x="238.73015873015868" width="13.920634920635024" height="231.73991031390136"></rect>
+	    	<rect class="bar" fill="#54c568" y="91.60089686098655" x="253.6507936507937" width="13.920634920634853" height="238.39910313901345"></rect>
+	    	<rect class="bar" fill="#4ac16d" y="57.41704035874437" x="268.57142857142856" width="13.920634920634939" height="272.5829596412556"></rect>
+	    	<rect class="bar" fill="#40bd72" y="61.85650224215249" x="283.4920634920635" width="13.920634920634825" height="268.1434977578475"></rect>
+	    	<rect class="bar" fill="#38b977" y="65.85201793721973" x="298.4126984126983" width="13.920634920634996" height="264.1479820627803"></rect>
+	    	<rect class="bar" fill="#2fb47c" y="65.40807174887891" x="313.3333333333333" width="13.920634920634939" height="264.5919282511211"></rect>
+	    	<rect class="bar" fill="#29af7f" y="38.32735426008969" x="328.25396825396825" width="13.920634920634825" height="291.6726457399103"></rect>
+	    	<rect class="bar" fill="#25ab82" y="33" x="343.1746031746031" width="13.920634920635052" height="297"></rect>
+	    	<rect class="bar" fill="#21a585" y="61.41255605381167" x="358.09523809523813" width="13.920634920634882" height="268.58744394618833"></rect>
+	    	<rect class="bar" fill="#1fa188" y="57.86098654708519" x="373.015873015873" width="13.920634920634882" height="272.1390134529148"></rect>
+	    	<rect class="bar" fill="#1e9c89" y="63.6322869955157" x="387.9365079365079" width="13.920634920634996" height="266.3677130044843"></rect>
+	    	<rect class="bar" fill="#1f978b" y="85.82959641255604" x="402.8571428571429" width="13.920634920634882" height="244.17040358744396"></rect>
+	    	<rect class="bar" fill="#20928c" y="89.3811659192825" x="417.77777777777777" width="13.920634920634882" height="240.6188340807175"></rect>
+	    	<rect class="bar" fill="#228d8d" y="131.1121076233184" x="432.69841269841265" width="13.920634920634939" height="198.8878923766816"></rect>
+	    	<rect class="bar" fill="#23888e" y="147.09417040358744" x="447.6190476190476" width="13.920634920634996" height="182.90582959641256"></rect>
+	    	<rect class="bar" fill="#26828e" y="154.19730941704034" x="462.5396825396826" width="13.920634920634825" height="175.80269058295966"></rect>
+	    	<rect class="bar" fill="#277e8e" y="182.16591928251123" x="477.4603174603174" width="13.920634920634882" height="147.83408071748877"></rect>
+	    	<rect class="bar" fill="#29798e" y="207.4708520179372" x="492.3809523809523" width="13.92063492063511" height="122.52914798206278"></rect>
+	    	<rect class="bar" fill="#2b748e" y="200.81165919282512" x="507.3015873015874" width="13.920634920634882" height="129.18834080717488"></rect>
+	    	<rect class="bar" fill="#2e6f8e" y="236.7713004484305" x="522.2222222222223" width="13.920634920634825" height="93.2286995515695"></rect>
+	    	<rect class="bar" fill="#306a8e" y="237.65919282511211" x="537.1428571428571" width="13.920634920634825" height="92.34080717488789"></rect>
+	    	<rect class="bar" fill="#32658e" y="244.76233183856502" x="552.0634920634919" width="13.920634920635052" height="85.23766816143498"></rect>
+	    	<rect class="bar" fill="#355f8d" y="260.74439461883406" x="566.984126984127" width="13.920634920634939" height="69.25560538116592"></rect>
+	    	<rect class="bar" fill="#375a8c" y="273.6188340807175" x="581.9047619047619" width="13.920634920634825" height="56.381165919282516"></rect>
+	    	<rect class="bar" fill="#3a548c" y="286.4932735426009" x="596.8253968253968" width="13.920634920635052" height="43.5067264573991"></rect>
+	    	<rect class="bar" fill="#3c4f8a" y="289.60089686098655" x="611.7460317460318" width="13.920634920634825" height="40.39910313901345"></rect>
+	    	<rect class="bar" fill="#3f4889" y="298.0358744394619" x="626.6666666666666" width="13.920634920634939" height="31.96412556053812"></rect>
+	    	<rect class="bar" fill="#414287" y="289.60089686098655" x="641.5873015873016" width="13.920634920634939" height="40.39910313901345"></rect>
+	    	<rect class="bar" fill="#433d84" y="306.914798206278" x="656.5079365079365" width="13.920634920634939" height="23.08520179372197"></rect>
+	    	<rect class="bar" fill="#453581" y="309.13452914798205" x="671.4285714285714" width="13.920634920634825" height="20.86547085201794"></rect>
+	    	<rect class="bar" fill="#472f7d" y="310.0224215246637" x="686.3492063492063" width="13.920634920635052" height="19.977578475336323"></rect>
+	    	<rect class="bar" fill="#482979" y="313.13004484304935" x="701.2698412698413" width="13.920634920634939" height="16.869955156950674"></rect>
+	    	<rect class="bar" fill="#482374" y="320.67713004484307" x="716.1904761904763" width="13.920634920634825" height="9.322869955156952"></rect>
+	    	<rect class="bar" fill="#481b6d" y="317.1255605381166" x="731.1111111111111" width="13.920634920634939" height="12.874439461883409"></rect>
+	    	<rect class="bar" fill="#481467" y="319.3452914798206" x="746.031746031746" width="13.920634920634825" height="10.654708520179373"></rect>
+	    	<rect class="bar" fill="#470d60" y="324.6726457399103" x="760.9523809523808" width="13.920634920634939" height="5.327354260089686"></rect>
+	    	<rect class="bar" fill="#450457" y="325.1165919282511" x="775.8730158730158" width="13.920634920634939" height="4.883408071748879"></rect>
+	    	<rect class="bar" fill="#440154" y="325.56053811659194" x="790.7936507936507" width="13.920634920635052" height="4.439461883408072"></rect>
+	    	<rect class="bar" fill="#440154" y="326.89237668161434" x="805.7142857142858" width="13.920634920634825" height="3.10762331838565"></rect>
+	    	<rect class="bar" fill="#440154" y="325.56053811659194" x="820.6349206349206" width="13.920634920634939" height="4.439461883408072"></rect>
+	    	<rect class="bar" fill="#440154" y="326.4484304932735" x="835.5555555555555" width="13.920634920634939" height="3.5515695067264574"></rect>
+	    	<rect class="bar" fill="#440154" y="327.33632286995515" x="850.4761904761905" width="13.920634920634825" height="2.663677130044843"></rect>
+	    	<rect class="bar" fill="#440154" y="325.56053811659194" x="865.3968253968253" width="13.920634920634939" height="4.439461883408072"></rect>
+	    	<rect class="bar" fill="#440154" y="328" x="880.3174603174602" width="13.920634920634939" height="2"></rect>
+	    	<rect class="bar" fill="#440154" y="328" x="895.2380952380952" width="13.920634920634939" height="2"></rect>
+	    	<rect class="bar" fill="#440154" y="328" x="910.1587301587301" width="13.920634920635052" height="2"></rect>
+	    	<rect class="bar" fill="#440154" y="328" x="925.0793650793652" width="13.920634920634825" height="2"></rect>
+
+	    </g>
+
+
+	</div>
+	
+	<p class="prose small">
+	    You may have noticed that machin machin analyse trucmuche
+	    BLABLABLABLA
+	</p>
+	
+	<div id="topsongs" class="graphic">
+	    <h2 class="title-nice">The Most Covered Songs</h2>
+	    <p class="title-sub">Of 17,000 songs from the Second Hand Song dataset</p>
+	    <div class="decade-controls"><a class="decade front-curve active">All Decades</a><a class="decade">'10s</a><a class="decade">'00s</a><a class="decade">'90s</a><a class="decade">'80s</a><a class="decade">'70s</a><a class="decade back-curve">'60s</a></div>
+	    <table>
+	        <thead>
+	            <tr>
+	            	<th></th>
+	            	<th>Track</th>
+	            	<th>Size Reduction</th>
+	            </tr>
+	        </thead>
+	        <tbody>
+	        	<tr>
+	        		<td class="rank">1.</td>
+	        		<td class="track">
+	        			<span class="title">Around The World</span> - Daft Punk, 1997
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 364.8px; background-color: rgb(68, 1, 84);">
+	        				<span>98%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">2.</td>
+	        		<td class="track">
+	        			<span class="title">The Rockafeller Skank</span> - Fatboy Slim, 1998
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 270.82587051144765px; background-color: rgb(68, 1, 84);">
+	        				<span>95%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">3.</td>
+	        		<td class="track">
+	        			<span class="title">Chain Of Fools (Part 1)</span> - Jimmy Smith, 1968
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 223.87396500170576px; background-color: rgb(68, 1, 84);">
+	        				<span>92%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">4.</td>
+	        		<td class="track">
+	        			<span class="title">Get Low</span> - Dillon Francis &amp; DJ Snake, 2015
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 193.9455932712612px; background-color: rgb(68, 1, 84);">
+	        				<span>90%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">5.</td>
+	        		<td class="track">
+	        			<span class="title">Barbra Streisand</span> - Duck Sauce, 2011
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 184.5610713762381px; background-color: rgb(68, 1, 84);">
+	        				<span>89%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">6.</td>
+	        		<td class="track">
+	        			<span class="title">Let's All Chant</span> - The Michael Zager Band, 1978
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 167.1402730439321px; background-color: rgb(68, 1, 84);">
+	        				<span>88%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">7.</td>
+	        		<td class="track">
+	        			<span class="title">Keep It Comin' Love</span> - KC And The Sunshine Band, 1977
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 157.02423709353852px; background-color: rgb(68, 1, 84);">
+	        				<span>87%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">8.</td>
+	        		<td class="track">
+	        			<span class="title">Turn Down For What</span> - DJ Snake &amp; Lil Jon, 2014
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 155.9816853778889px; background-color: rgb(68, 1, 84);">
+	        				<span>87%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">9.</td>
+	        		<td class="track">
+	        			<span class="title">Who'd She Coo?</span> - Ohio Players, 1976
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 150.38471996806578px; background-color: rgb(68, 1, 84);">
+	        				<span>86%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        	<tr>
+	        		<td class="rank">10.</td>
+	        		<td class="track">
+	        			<span class="title">Watch Me</span> - Silento, 2015
+	        		</td>
+	        		<td class="reduction">
+	        			<div class="bar" style="width: 150.05575546738203px; background-color: rgb(68, 1, 84);">
+	        				<span>86%</span>
+	        			</div>
+	        		</td>
+	        	</tr>
+	        </tbody>
+	    </table>
+	</div>
+	
+	<p class="prose">Intuitively, <i>The most covered song</i> definitelyis the most covered. We can see that we want huge dicks in our mouth.
+	</p>
+	
+	<p class="prose bottom-spacer">So how does that evolves during time ?</p>
+	
+	
+	<div class="graphic graphic-fullwidth scrolly-columns" id="overtime-graphic">
+	    <div id="rovertime" class="graphic-vis">
+	        <h2 class="scrolly">Repetition of Popular Music, by Year</h2>
+	        <!--
+	        <svg width="735" height="620.1">
+	        	<g transform="translate(40 20)">
+	        		<g class="xaxis" transform="translate(0 580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
+	        			<path class="domain" stroke="#000" d="M0.5,6V0.5H635.5V6">
+	        			</path>
+	        			<g class="tick" opacity="1" transform="translate(0,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1960</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1970</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1980</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1990</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">2000</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
+	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="9" x="0.5" dy="0.71em">2010</text>
+	        			</g>
+	        		</g>
+	        		<g class="yaxis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+	        			<path class="domain" stroke="#000" d="M-6,580.6H0.5V0.5H-6"></path>
+	        			<g class="tick" opacity="1" transform="translate(0,580.1)">
+	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
+	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">40%</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
+	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
+	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">45%</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
+	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
+	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">50%</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
+	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
+	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">55%</text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(0,0)">
+	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
+	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">60%</text>
+	        			</g>
+	        			<text transform="rotate(-90)">repetitiveness</text>
+	        		</g>
+	        		<g class="grid grid-minor grid-x" transform="translate(0,580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
+	        			<g class="tick" opacity="1" transform="translate(0,0)">
+	        				<line y2="-580.1" x1="0.5" x2="0.5"></line>
+	        				<text fill="#000" y="3" x="0.5" dy="0.71em"></text>
+	        			</g>
+	        			<g class="tick" opacity="1" transform="translate(11.545454545454545,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(23.09090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(34.63636363636363,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(46.18181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(57.72727272727273,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(69.27272727272727,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(80.81818181818181,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(92.36363636363636,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(103.9090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(127,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(138.54545454545453,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(150.0909090909091,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(161.63636363636363,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(173.18181818181816,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(184.72727272727272,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(196.27272727272728,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(207.8181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(219.36363636363637,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(242.45454545454547,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(254,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(265.5454545454545,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(277.09090909090907,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(288.6363636363636,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(300.1818181818182,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(311.72727272727275,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(323.27272727272725,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(334.8181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(357.9090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(369.45454545454544,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(381,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(392.54545454545456,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(404.09090909090907,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(415.6363636363636,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(427.1818181818182,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(438.72727272727275,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(450.2727272727273,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(473.3636363636364,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(484.90909090909093,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(496.4545454545455,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(508,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(519.5454545454546,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(531.090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(542.6363636363636,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(554.1818181818181,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(565.7272727272727,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(588.8181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(600.3636363636364,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(611.9090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(623.4545454545455,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(635,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+					</g>
+					<g class="grid grid-major grid-x" transform="translate(0,580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
+						<g class="tick" opacity="1" transform="translate(0,0)">
+							<line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
+						   	<line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+						<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
+						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
+					</g>
+					<g class="grid grid-minor grid-y" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+						<g class="tick" opacity="1" transform="translate(0,580.1)">
+						    <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+						<g class="tick" opacity="1" transform="translate(0,556.054011478759)">
+						   	<line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+						<g class="tick" opacity="1" transform="translate(0,531.5969605675259)">
+						    <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+						<g class="tick" opacity="1" transform="translate(0,506.71454838111424)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,481.3917167242323)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,429.360432252039)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,402.61754823190006)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,375.365245428197)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,347.5837387573452)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,290.3480009704675)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,260.8479323650177)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,230.7267642757414)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,199.95777972145794)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,136.3605257242982)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,103.4693613418134)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,69.80421661125314)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,35.32778598510947)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,0)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					</g>
+					<g class="grid grid-major grid-y" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
+					    <g class="tick" opacity="1" transform="translate(0,580.1)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					    <g class="tick" opacity="1" transform="translate(0,0)">
+					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
+					</g>
+						<path class="trendline" stroke="steelblue" fill="none" stroke-linejoin="round" stroke-linecap="round" d="M0,435.62964127869213L11.545454545454545,433.18338781608884L23.09090909090909,433.54630976735234L34.63636363636363,410.51331218168616L46.18181818181818,397.25777442968536L57.72727272727273,400.5640721291304L69.27272727272727,440.6179254743677L80.81818181818181,467.9588779532212L92.36363636363636,457.6290820015331L103.9090909090909,430.5253530526089L115.45454545454545,387.3158204445565L127,381.9039185061014L138.54545454545453,391.8355210221851L150.0909090909091,411.5799547260523L161.63636363636363,405.78869847627635L173.18181818181816,387.0520766693714L184.72727272727272,373.76562829575096L196.27272727272728,362.1238314687157L207.8181818181818,342.7440898351142L219.36363636363637,340.000150923778L230.9090909090909,337.3862835765199L242.45454545454547,347.5704838138913L254,344.1335308803815L265.5454545454545,336.84232886142615L277.09090909090907,332.31974211100777L288.6363636363636,333.1896965164763L300.1818181818182,329.7116671854575L311.72727272727275,329.5870495143294L323.27272727272725,323.2755035069995L334.8181818181818,333.84900682423955L346.3636363636363,347.9124154167528L357.9090909090909,355.75793612312094L369.45454545454544,353.3075691064903L381,362.3716186587968L392.54545454545456,352.3884708556227L404.09090909090907,358.1428514356196L415.6363636363636,331.69409430223254L427.1818181818182,330.2831880927515L438.72727272727275,317.81279341423703L450.2727272727273,303.86203073782536L461.8181818181818,276.89342034299455L473.3636363636364,262.93289825089767L484.90909090909093,278.8708030785121L496.4545454545455,297.65998688027247L508,310.84136560941414L519.5454545454546,291.3952758881083L531.090909090909,271.2294671255992L542.6363636363636,246.9372608544233L554.1818181818181,238.80543671830583L565.7272727272727,250.170769613125L577.2727272727273,251.86539585201797L588.8181818181818,247.8344881556348L600.3636363636364,226.13804641276704L611.9090909090909,200.0514216401179L623.4545454545455,186.59250605542314L635,189.19111912438535" stroke-dasharray="1002.0167236328125 1002.0167236328125" stroke-dashoffset="1002.0167236328125"></path>
+						<path class="trendline hitpath" stroke="orange" fill="none" d="M0,397.92550589857603L11.545454545454545,396.6001307665254L23.09090909090909,377.2023617370462L34.63636363636363,324.2030501488076L46.18181818181818,302.277848758282L57.72727272727273,314.44336952990665L69.27272727272727,371.5212209539917L80.81818181818181,400.89694289325007L92.36363636363636,366.0929592225116L103.9090909090909,344.69861243903614L115.45454545454545,310.61943482555165L127,341.407680606151L138.54545454545453,367.530822179517L150.0909090909091,375.88523462278965L161.63636363636363,335.78549822895104L173.18181818181816,327.53658146031495L184.72727272727272,323.2971080205101L196.27272727272728,337.97544440113643L207.8181818181818,299.32029607826973L219.36363636363637,298.19779234837995L230.9090909090909,312.9652157795316L242.45454545454547,311.0964627187112L254,271.6742377490843L265.5454545454545,233.3025076192921L277.09090909090907,256.0904432434816L288.6363636363636,315.45067278111793L300.1818181818182,295.8028719316631L311.72727272727275,279.1137446573421L323.27272727272725,237.86235262952476L334.8181818181818,260.13251801546375L346.3636363636363,274.594159841899L357.9090909090909,297.5664040051982L369.45454545454544,306.8297464855825L381,300.85914901708566L392.54545454545456,265.2524512792217L404.09090909090907,253.4772245034489L415.6363636363636,232.80841659189377L427.1818181818182,228.33174815314447L438.72727272727275,205.7601231486306L450.2727272727273,128.06675985503585L461.8181818181818,107.16487651545873L473.3636363636364,94.74161024284649L484.90909090909093,177.4737934206961L496.4545454545455,209.15787773227754L508,209.21628654759854L519.5454545454546,205.71350565625363L531.090909090909,173.08315699444688L542.6363636363636,174.93135800675373L554.1818181818181,127.39592926035766L565.7272727272727,119.59145986508202L577.2727272727273,107.46363514519919L588.8181818181818,80.95192196792067L600.3636363636364,54.25960598780887L611.9090909090909,18.16160136953772L623.4545454545455,2.999689428760462L635,13.765544956041367" stroke-dasharray="1544.133056640625 1544.133056640625" stroke-dashoffset="1544.133056640625"></path>
+					</g>
+					<g opacity="0" class="legend" transform="translate(611.484375, 10)">
+		   	    	<g class="legendCells">
+			        	<g class="cell" transform="translate(0,0)" style="opacity: 1;">
+			       	     <rect class="swatch" height="3" width="25" style="fill: steelblue;"></rect><text class="label" transform="translate(12.5, 21)"style="text-anchor: middle;">All Songs</text></g>
+				    	<g class="cell" transform="translate(65,0)" style="opacity: 1;">
+			        	    <rect class="swatch" height="3" width="25" style="fill: orange;"></rect><text class="label" transform="translate(12.5,
+				        	  21)" style="text-anchor: middle;">Top 10</text></g>
+			    	</g>
+				</g>
+			</svg>
+		-->
+	    </div>
+	    <div class="graphic-prose">
+	        <div class="stage0"></div>
+	        <div class="spacer"></div>
+	        <div class="scrolly-slide stage1">
+	            <p>In 1960, the average song is 45.7% compressible. The most repetitive song of the year is Dee Clark's <i>At My Front Door</i> (78% compressible). Sample:</p>
+	            <blockquote>
+	                Knock, knock, knock, knock<br>
+	                Knock, knock, knock, knock<br><br>
+	
+	                Crazy little mama come knocking<br>
+	                Knocking at my front door<br>
+	                Crazy little mama come knocking<br>
+	                Knocking at my front door
+	            </blockquote>
+	        </div>
+	        <div class="spacer"></div>
+	        <div class="scrolly-slide stage2">
+	            <p>By 1980, disco has reached the peak of its popularity. The year's most repetitive song is <i>Funkytown</i> (85% compressible), which spends 4 weeks at #1.</p>
+	        </div>
+	        <div class="spacer"></div>
+	        <div class="scrolly-slide stage3">
+	            <p>2014 is the most repetitive year on record. An average song from this year compresses 22% more efficiently than one from 1960.</p>
+	            <p><small>* Each point actually represents a 3-year rolling average. 2015 is the last year having a full year of data on either side of it.</small></p>
+	            <p><small>** 22% is the relative difference. i.e. if we took random songs from 2014 and 1960 having the same length, we'd expect the compressed 2014 song to be 22% smaller than the compressed 1960 songs.</small></p>
+	        </div>
+	        <div class="scrolly-slide stage4"></div>
+	        <div class="spacer"></div>
+	        <div class="scrolly-slide stage5">
+	            <p>The songs that reached the top 10 were, on average, more repetitive than the rest in <i>every year</i> from 1960 to 2015!</p>
+	        </div>
+	        <div class="spacer"></div>
+	    </div>
+	</div>
+	
+	
+	<h2 class="title-nice">Map representation of songs</h2>
+	
+	<p class="prose">Let's look at the represention on a map of our data.
+	</p>
+	
+	 <!--
+	<div id="artist-circles" class="graphic">
+	    <h2 class="title-nice">Repetitiveness Per Artist</h2>
+	   
+	
+	    <div class="decade-controls"></div>
+	    <svg width="980" height="486" class="beeswarm"><g transform="translate(20 20)"><g width="54" height="54" class="artistNode bubble-container" transform="translate(349.0985414774502 181.5851690666974)"><circle r="27" cx="0" cy="0" fill="#3dbc74"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(43, 132, 81);"><tspan fill="black" x="0" y="-5.775">Celine</tspan><tspan fill="black" x="0" y="5.775">Dion </tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(313.4624972726545 224.7828729188903)"><circle r="27" cx="0" cy="0" fill="#46c06f"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(49, 134, 78);"><tspan fill="black" x="0" y="-5.775">Depeche</tspan><tspan fill="black" x="0" y="5.775">Mode </tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(417.8902092798734 263.255424165873)"><circle r="27" cx="0" cy="0" fill="#2eb37c"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(32, 125, 87);"><tspan fill="black" x="0" y="-5.775">George</tspan><tspan fill="black" x="0" y="5.775">Michael</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(502.8661148978776 193.5749082863147)"><circle r="27" cx="0" cy="0" fill="#21a685"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(23, 116, 93);"><tspan fill="black" x="0" y="-5.775">Gloria</tspan><tspan fill="black" x="0" y="5.775">Estefan</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(631.0873964495986 196.87363997924837)"><circle r="27" cx="0" cy="0" fill="#20928c"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(22, 102, 98);"><tspan fill="black" x="0" y="-5.775">Janet</tspan><tspan fill="black" x="0" y="5.775">Jackson</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(433.3902587296639 147.63844147183434)"><circle r="27" cx="0" cy="0" fill="#2ab07f"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 90%; stroke: rgb(29, 123, 89);"><tspan fill="black" x="0" y="-5.775">Luther</tspan><tspan fill="black" x="0" y="5.775">Vandross</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(686.8713285650998 201.77741369804656)"><circle r="27" cx="0" cy="0" fill="#228b8d"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(24, 97, 99);"><tspan fill="black" x="0" y="0">Madonna</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(661.4917374116965 251.69191401507945)"><circle r="27" cx="0" cy="0" fill="#218e8d"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(23, 99, 99);"><tspan fill="black" x="0" y="-5.775">Mariah</tspan><tspan fill="black" x="0" y="5.775">Carey</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(663.2269374990121 151.01682343377564)"><circle r="27" cx="0" cy="0" fill="#218e8d"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(23, 99, 99);"><tspan fill="black" x="0" y="-5.775">Mary J.</tspan><tspan fill="black" x="0" y="5.775">Blige</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(575.1735180450419 199.84864160985543)"><circle r="27" cx="0" cy="0" fill="#1f998a"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(22, 107, 97);"><tspan fill="black" x="0" y="-5.775">R.</tspan><tspan fill="black" x="0" y="5.775">Kelly</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(605.7076488929142 246.79250910169532)"><circle r="27" cx="0" cy="0" fill="#1f958b"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(22, 104, 97);"><tspan fill="black" x="0" y="0">R.E.M.</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(403.4745519820396 194.96719311049378)"><circle r="27" cx="0" cy="0" fill="#31b57b"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(34, 127, 86);"><tspan fill="black" x="0" y="0">Sting</tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(367.8281810194831 238.1561127742089)"><circle r="27" cx="0" cy="0" fill="#35b779"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 100%; stroke: rgb(37, 128, 85);"><tspan fill="black" x="0" y="0">U2 </tspan></text></g><g width="54" height="54" class="artistNode bubble-container" transform="translate(453.53119864571795 220.0688388623513)"><circle r="27" cx="0" cy="0" fill="#26ad81"></circle><text class="artists-bubble-text" x="0" y="0" width="54" height="54" style="font-size: 95%; stroke: rgb(27, 121, 90);"><tspan fill="black" x="0" y="-5.775">Whitney</tspan><tspan fill="black" x="0" y="5.775">Houston</tspan></text></g></g><g class="axis" transform="translate(0 416)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle"><text class="label" transform="translate(470, 40)">Avg. Size Reduction</text><path class="domain" stroke="#000" d="M27.5,0V0.5H913.5V0"></path><g class="tick" opacity="1" transform="translate(53.85204826799263,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">29%</text></g><g class="tick" opacity="1" transform="translate(137.84969658829755,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">34%</text></g><g class="tick" opacity="1" transform="translate(221.84734490860242,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">38%</text></g><g class="tick" opacity="1" transform="translate(305.8449932289074,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">43%</text></g><g class="tick" opacity="1" transform="translate(389.8426415492123,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">46%</text></g><g class="tick" opacity="1" transform="translate(473.8402898695172,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">50%</text></g><g class="tick" opacity="1" transform="translate(557.8379381898221,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">53%</text></g><g class="tick" opacity="1" transform="translate(641.8355865101272,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">56%</text></g><g class="tick" opacity="1" transform="translate(725.8332348304319,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">59%</text></g><g class="tick" opacity="1" transform="translate(809.8308831507368,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">62%</text></g><g class="tick" opacity="1" transform="translate(893.8285314710417,0)"><line stroke="#000" y2="4" x1="0.5" x2="0.5"></line><text fill="#000" y="10" x="0.5" dy="0.71em">65%</text></g></g></svg>
+	</div>
+
+	    -->
+	<h2 class="title-nice">Analysing Genres</h2>
+	<p class="prose">Genre does seem like a differentiating factor here. BLABLABLABLABLA
+	</p>
+	
+	<p class="prose">BLABLABLABLA PUTE BLABLABLABLABLA
+	</p>
+	
+	<p class="prose">BLABLABLABLABLA SALOPE BLABLABLABLA
+	</p>
+	
+	<div id="discog-widget" class="graphic">
+	</div>
+	
+	<p class="prose">
+	On average, Gwen's music is extremely repetitive, but there's a wide spread between the incessantly repetitive "Hollaback Girl", and the laid-back ballad "Cool", which is far less repetitive than the median song in the dataset.
+	</p>
+	
+	<p class="prose">
+	You can search for your favorite artist in the dropdown above. A few interesting examples (click an artist's name to jump to their chart):
+	</p>
+	
+	<ul class="prose" id="discog-examples">
+	    <li>People have described <i>1989</i> as the album where <button>Taylor Swift</button> fully transitioned from country singer/songwriter to popstar. This data adds some flavour to that claim. 4 of her 5 most repetitive songs are from <i>1989</i>.</li>
+	    <li><button>Madonna</button> has a long, consistent legacy of highly repetitive music. Interestingly, her two least repetitive songs are arguably the only two that don't belong to the pop genre: they're both from the musical <i>Evita</i>, and written by Tim Rice and Andrew Lloyd Weber.</li>
+	    <li>Rappers like <button>J. Cole</button> and <button>Eminem</button> tend to be consistently non-repetitive.</li>
+	    <li>Is it any wonder <button>Rihanna</button> won the title of most repetitive artist in the dataset? Over half a dozen of her songs sit on the <i>far</i> right of the distribution (including, appropriately, <i>Pon de Replay</i>).</li>
+	
+	</ul>
+
+	<main>
+
+	</main>
+
+	<script src="bundle.js?version=1494602952381"></script>
+</body>
+</html>
+
