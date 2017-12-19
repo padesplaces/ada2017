@@ -1771,6 +1771,9 @@
 
 
     </div>
+    <p class="prose small">
+        We can observe on this histogram of time repartition of cover songs, that covers started to emerge in the 60's. In the first half of the century, very few cover songs appear. We note an augmentation of the number of covers per year in 2000, with a peak in 2007-2008.
+    </p>
 
     <div id="histogram" class="graphic">
 
@@ -1891,6 +1894,12 @@
 
 
     </div>
+    <p class="prose small">
+        The repartition of original songs through time is less sparse than for covers. The majority of covered songs are tracks from 1960 to 1980, which is not surprising. But we can notice that a part from this category of middle-aged songs, recent songs are more covered than old ones (before 1950).
+    </p>
+
+    <p class="prose" style="margin-top:80px;margin-right:30px"> Another interesting time analysis is to visualize the number of songs that have been covered the same year of their released.
+    </p>
 
     <div id="histogram" class="graphic">
 
@@ -2014,8 +2023,7 @@
 
 	
 	<p class="prose small">
-	    You may have noticed that machin machin analyse trucmuche
-	    BLABLABLABLA
+	    Intuitively, we cound think that the years with the biggest numbers would be a recent year as covers become more and more popular. However, the histogram shows us that the year with the most covers for a song from the same year is 1968. The histogram is more similar to the covers histogram than to the originals histogram.
 	</p>
 	
 	<div id="topsongs" class="graphic">
@@ -2241,327 +2249,56 @@
 	<p class="prose bottom-spacer">So how does that evolves during time ?</p>
 	
 	
-	<div class="graphic graphic-fullwidth scrolly-columns" id="overtime-graphic">
-	    <div id="rovertime" class="graphic-vis">
-	        <h2 class="scrolly">Repetition of Popular Music, by Year</h2>
-	        <!--
-	        <svg width="735" height="620.1">
-	        	<g transform="translate(40 20)">
-	        		<g class="xaxis" transform="translate(0 580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
-	        			<path class="domain" stroke="#000" d="M0.5,6V0.5H635.5V6">
-	        			</path>
-	        			<g class="tick" opacity="1" transform="translate(0,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1960</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1970</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1980</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">1990</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">2000</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
-	        				<line stroke="#000" y2="6" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="9" x="0.5" dy="0.71em">2010</text>
-	        			</g>
-	        		</g>
-	        		<g class="yaxis" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
-	        			<path class="domain" stroke="#000" d="M-6,580.6H0.5V0.5H-6"></path>
-	        			<g class="tick" opacity="1" transform="translate(0,580.1)">
-	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
-	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">40%</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
-	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
-	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">45%</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
-	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
-	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">50%</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
-	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
-	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">55%</text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(0,0)">
-	        				<line stroke="#000" x2="-6" y1="0.5" y2="0.5"></line>
-	        				<text fill="#000" x="-9" y="0.5" dy="0.32em">60%</text>
-	        			</g>
-	        			<text transform="rotate(-90)">repetitiveness</text>
-	        		</g>
-	        		<g class="grid grid-minor grid-x" transform="translate(0,580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
-	        			<g class="tick" opacity="1" transform="translate(0,0)">
-	        				<line y2="-580.1" x1="0.5" x2="0.5"></line>
-	        				<text fill="#000" y="3" x="0.5" dy="0.71em"></text>
-	        			</g>
-	        			<g class="tick" opacity="1" transform="translate(11.545454545454545,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(23.09090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(34.63636363636363,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(46.18181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(57.72727272727273,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(69.27272727272727,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(80.81818181818181,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(92.36363636363636,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(103.9090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(127,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(138.54545454545453,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(150.0909090909091,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(161.63636363636363,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(173.18181818181816,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(184.72727272727272,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(196.27272727272728,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(207.8181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(219.36363636363637,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(242.45454545454547,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(254,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(265.5454545454545,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(277.09090909090907,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(288.6363636363636,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(300.1818181818182,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(311.72727272727275,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(323.27272727272725,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(334.8181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(357.9090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(369.45454545454544,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(381,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(392.54545454545456,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(404.09090909090907,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(415.6363636363636,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(427.1818181818182,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(438.72727272727275,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(450.2727272727273,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(473.3636363636364,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(484.90909090909093,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(496.4545454545455,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(508,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(519.5454545454546,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(531.090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(542.6363636363636,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(554.1818181818181,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(565.7272727272727,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(588.8181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(600.3636363636364,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(611.9090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(623.4545454545455,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(635,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-					</g>
-					<g class="grid grid-major grid-x" transform="translate(0,580.1)" fill="none" font-size="10" font-family="sans-serif" text-anchor="middle">
-						<g class="tick" opacity="1" transform="translate(0,0)">
-							<line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(115.45454545454545,0)">
-						   	<line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(230.9090909090909,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(346.3636363636363,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(461.8181818181818,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-						<g class="tick" opacity="1" transform="translate(577.2727272727273,0)">
-						    <line y2="-580.1" x1="0.5" x2="0.5"></line><text fill="#000" y="3" x="0.5" dy="0.71em"></text></g>
-					</g>
-					<g class="grid grid-minor grid-y" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
-						<g class="tick" opacity="1" transform="translate(0,580.1)">
-						    <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-						<g class="tick" opacity="1" transform="translate(0,556.054011478759)">
-						   	<line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-						<g class="tick" opacity="1" transform="translate(0,531.5969605675259)">
-						    <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-						<g class="tick" opacity="1" transform="translate(0,506.71454838111424)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,481.3917167242323)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,429.360432252039)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,402.61754823190006)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,375.365245428197)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,347.5837387573452)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,290.3480009704675)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,260.8479323650177)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,230.7267642757414)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,199.95777972145794)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,136.3605257242982)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,103.4693613418134)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,69.80421661125314)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,35.32778598510947)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,0)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					</g>
-					<g class="grid grid-major grid-y" fill="none" font-size="10" font-family="sans-serif" text-anchor="end">
-					    <g class="tick" opacity="1" transform="translate(0,580.1)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,455.61259335928094)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,319.2520676349822)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,168.5124998870209)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					    <g class="tick" opacity="1" transform="translate(0,0)">
-					        <line x2="635" y1="0.5" y2="0.5"></line><text fill="#000" x="-3" y="0.5" dy="0.32em"></text></g>
-					</g>
-						<path class="trendline" stroke="steelblue" fill="none" stroke-linejoin="round" stroke-linecap="round" d="M0,435.62964127869213L11.545454545454545,433.18338781608884L23.09090909090909,433.54630976735234L34.63636363636363,410.51331218168616L46.18181818181818,397.25777442968536L57.72727272727273,400.5640721291304L69.27272727272727,440.6179254743677L80.81818181818181,467.9588779532212L92.36363636363636,457.6290820015331L103.9090909090909,430.5253530526089L115.45454545454545,387.3158204445565L127,381.9039185061014L138.54545454545453,391.8355210221851L150.0909090909091,411.5799547260523L161.63636363636363,405.78869847627635L173.18181818181816,387.0520766693714L184.72727272727272,373.76562829575096L196.27272727272728,362.1238314687157L207.8181818181818,342.7440898351142L219.36363636363637,340.000150923778L230.9090909090909,337.3862835765199L242.45454545454547,347.5704838138913L254,344.1335308803815L265.5454545454545,336.84232886142615L277.09090909090907,332.31974211100777L288.6363636363636,333.1896965164763L300.1818181818182,329.7116671854575L311.72727272727275,329.5870495143294L323.27272727272725,323.2755035069995L334.8181818181818,333.84900682423955L346.3636363636363,347.9124154167528L357.9090909090909,355.75793612312094L369.45454545454544,353.3075691064903L381,362.3716186587968L392.54545454545456,352.3884708556227L404.09090909090907,358.1428514356196L415.6363636363636,331.69409430223254L427.1818181818182,330.2831880927515L438.72727272727275,317.81279341423703L450.2727272727273,303.86203073782536L461.8181818181818,276.89342034299455L473.3636363636364,262.93289825089767L484.90909090909093,278.8708030785121L496.4545454545455,297.65998688027247L508,310.84136560941414L519.5454545454546,291.3952758881083L531.090909090909,271.2294671255992L542.6363636363636,246.9372608544233L554.1818181818181,238.80543671830583L565.7272727272727,250.170769613125L577.2727272727273,251.86539585201797L588.8181818181818,247.8344881556348L600.3636363636364,226.13804641276704L611.9090909090909,200.0514216401179L623.4545454545455,186.59250605542314L635,189.19111912438535" stroke-dasharray="1002.0167236328125 1002.0167236328125" stroke-dashoffset="1002.0167236328125"></path>
-						<path class="trendline hitpath" stroke="orange" fill="none" d="M0,397.92550589857603L11.545454545454545,396.6001307665254L23.09090909090909,377.2023617370462L34.63636363636363,324.2030501488076L46.18181818181818,302.277848758282L57.72727272727273,314.44336952990665L69.27272727272727,371.5212209539917L80.81818181818181,400.89694289325007L92.36363636363636,366.0929592225116L103.9090909090909,344.69861243903614L115.45454545454545,310.61943482555165L127,341.407680606151L138.54545454545453,367.530822179517L150.0909090909091,375.88523462278965L161.63636363636363,335.78549822895104L173.18181818181816,327.53658146031495L184.72727272727272,323.2971080205101L196.27272727272728,337.97544440113643L207.8181818181818,299.32029607826973L219.36363636363637,298.19779234837995L230.9090909090909,312.9652157795316L242.45454545454547,311.0964627187112L254,271.6742377490843L265.5454545454545,233.3025076192921L277.09090909090907,256.0904432434816L288.6363636363636,315.45067278111793L300.1818181818182,295.8028719316631L311.72727272727275,279.1137446573421L323.27272727272725,237.86235262952476L334.8181818181818,260.13251801546375L346.3636363636363,274.594159841899L357.9090909090909,297.5664040051982L369.45454545454544,306.8297464855825L381,300.85914901708566L392.54545454545456,265.2524512792217L404.09090909090907,253.4772245034489L415.6363636363636,232.80841659189377L427.1818181818182,228.33174815314447L438.72727272727275,205.7601231486306L450.2727272727273,128.06675985503585L461.8181818181818,107.16487651545873L473.3636363636364,94.74161024284649L484.90909090909093,177.4737934206961L496.4545454545455,209.15787773227754L508,209.21628654759854L519.5454545454546,205.71350565625363L531.090909090909,173.08315699444688L542.6363636363636,174.93135800675373L554.1818181818181,127.39592926035766L565.7272727272727,119.59145986508202L577.2727272727273,107.46363514519919L588.8181818181818,80.95192196792067L600.3636363636364,54.25960598780887L611.9090909090909,18.16160136953772L623.4545454545455,2.999689428760462L635,13.765544956041367" stroke-dasharray="1544.133056640625 1544.133056640625" stroke-dashoffset="1544.133056640625"></path>
-					</g>
-					<g opacity="0" class="legend" transform="translate(611.484375, 10)">
-		   	    	<g class="legendCells">
-			        	<g class="cell" transform="translate(0,0)" style="opacity: 1;">
-			       	     <rect class="swatch" height="3" width="25" style="fill: steelblue;"></rect><text class="label" transform="translate(12.5, 21)"style="text-anchor: middle;">All Songs</text></g>
-				    	<g class="cell" transform="translate(65,0)" style="opacity: 1;">
-			        	    <rect class="swatch" height="3" width="25" style="fill: orange;"></rect><text class="label" transform="translate(12.5,
-				        	  21)" style="text-anchor: middle;">Top 10</text></g>
-			    	</g>
-				</g>
-			</svg>
-		-->
-	    </div>
-	    <div class="graphic-prose">
-	        <div class="stage0"></div>
-	        <div class="spacer"></div>
-	        <div class="scrolly-slide stage1">
-	            <p>In 1960, the average song is 45.7% compressible. The most repetitive song of the year is Dee Clark's <i>At My Front Door</i> (78% compressible). Sample:</p>
-	            <blockquote>
-	                Knock, knock, knock, knock<br>
-	                Knock, knock, knock, knock<br><br>
 	
-	                Crazy little mama come knocking<br>
-	                Knocking at my front door<br>
-	                Crazy little mama come knocking<br>
-	                Knocking at my front door
-	            </blockquote>
-	        </div>
-	        <div class="spacer"></div>
-	        <div class="scrolly-slide stage2">
-	            <p>By 1980, disco has reached the peak of its popularity. The year's most repetitive song is <i>Funkytown</i> (85% compressible), which spends 4 weeks at #1.</p>
-	        </div>
-	        <div class="spacer"></div>
-	        <div class="scrolly-slide stage3">
-	            <p>2014 is the most repetitive year on record. An average song from this year compresses 22% more efficiently than one from 1960.</p>
-	            <p><small>* Each point actually represents a 3-year rolling average. 2015 is the last year having a full year of data on either side of it.</small></p>
-	            <p><small>** 22% is the relative difference. i.e. if we took random songs from 2014 and 1960 having the same length, we'd expect the compressed 2014 song to be 22% smaller than the compressed 1960 songs.</small></p>
-	        </div>
-	        <div class="scrolly-slide stage4"></div>
-	        <div class="spacer"></div>
-	        <div class="scrolly-slide stage5">
-	            <p>The songs that reached the top 10 were, on average, more repetitive than the rest in <i>every year</i> from 1960 to 2015!</p>
-	        </div>
-	        <div class="spacer"></div>
-	    </div>
-	</div>
+	        
 	
 	
-	<h2 class="title-nice">Map representation of songs</h2>
+	<h2 class="title-nice" style:"margin-down:50px">Map representation of songs</h2>
 
-    <p class="prose" style="align:center;text-align:center">Let's look at the represention on a map of our data.
+    <p class="prose" style="align:center;text-align:center;margin-top:30px;">Let's look at the geographical repartition of the songs.
        </p>
     <div>
-        <object data="../data/songs_map.html" style="width:90%; margin-left:62px;height:500px;align:right"></object>
+        <object data="../data/songs_map.html" style="width:80%; margin-left:130px;height:500px;align:right"></object>
 	   
     </div>
     
+    <p class="prose">
+        For both song categories, covers or originals, the United States produce the majority of the songs, with more than 3'000 original songs, and more than 6'000 covers. As they are far away before the rest of the world, it is hard to analyse the others countries with this scale.
+    </p>
+    <p class="small prose" style="margin-top:70px; margin-bottom:50px">
+        In order to have an idea of the production of songs in other countries, let's take a look at the map below, grouping the data by groups of equal size instead of divinding the range of values in equal intervals.
+    </p>
+
+    <div>
+        <object data="../data/songs_map2.html" style="width:80%; margin-left:130px;height:500px;align:right"></object>
+       
+       <p class="title-sub">
+            Geographic repartition of the songs by quantiles
+        </p>
+    </div>
+
+    <p class="prose" style="margin-top:10px">
+        On this map, we observe that there is no difference between the repartition of original songs and their covers. They mostly born in occidental countries : United States and european countries ; but also in Brazil and Australia. If we look closer at european countries, we see that the 4 countries with the most covered songs are France, United Kingdom, Italy and Germany. If we only look at the covers in Europ, we find the same 4 countries, as well as Sweden.
+    </p>
     
 	 
-	<h2 class="title-nice">Analysing Genres</h2>
+	<h2 class="title-nice" style="margin-top:50px">Analysing Genres</h2>
 	<p class="prose">Genre does seem like a differentiating factor here. BLABLABLABLABLA
 	</p>
+    <div id="container">
 
-    <div id="chartContainerOriginals" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-	
-	<p class="prose">ORIGINAL SONGS GENRE
-	</p>
-	
-    <div id="chartContainerCovers" style="height: 370px; width: 100%;"></div>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-	<p class="prose">COVER SONGS GENRE
-	</p>
-	
+        <div id="chartContainerOriginals" style="float:left;margin-right:100px;height: 370px; width: 100%;">
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    	</div>
+    	<p class="prose">ORIGINAL SONGS GENRE
+    	</p>
+    	
+        <div id="chartContainerCovers" style="float:right;height: 370px; width: 100%;">
+            <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        </div>
+    	<p class="prose">COVER SONGS GENRE
+    	</p>
+	</div>
 
 	<h2 class="story-title">The story of <i>My Way</i>
 		</h2>
