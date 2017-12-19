@@ -25,8 +25,9 @@ can switch last 2 questions
 * do covers spread further now than before ? (if possible)
 
 ## Genre
-* more covers in the same genre or different ?
+* more covers in the same genre or different ? ✅
 * originals by genre (piechart)
+* covers by genre (piechart)
 
 ### Popularity (optional)
 On average, are covers more or less popular than their original ?
