@@ -5,7 +5,7 @@ abstract
 ## General
 * Most covered songs (top 10) ? (depends if it matches reality)  ✅
 * Artists most covered ? ✅
-* Top 10 by decades ✅ (visu like article pudding)
+* Top 10 by decades ✅ (visu like article pudding) ✅ 
 
 can switch last 2 questions
 
@@ -20,14 +20,14 @@ can switch last 2 questions
 
 ## Location
 * more covers in the same country or different ? ✅
-* country with the most originals (map)
-* country with the most covers (map)
-* do covers spread further now than before ? (if possible)
+* country with the most originals (map) ✅
+* country with the most covers (map) ✅
+* do covers spread further now than before ? (if possible) ??
 
 ## Genre
+* originals by genre (piechart) ✅
+* covers by genre (piechart) ✅
 * more covers in the same genre or different ? ✅
-* originals by genre (piechart)
-* covers by genre (piechart)
 
 ### Popularity (optional)
 On average, are covers more or less popular than their original ?
