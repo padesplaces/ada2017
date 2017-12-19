@@ -12,7 +12,13 @@
 	<meta property="og:description" content="Analysis of music covers through time and spatial analysis">
 	<meta property="og:type" content="article">
 	<meta property="og:locale" content="en_US">
-	
+	<meta charset="utf-8">
+      <link rel='stylesheet' type="text/css" href="style.css">
+      <script src="d3.v3.min.js"></script>
+      <script src="topojson.v1.min.js"></script>
+      <script src="moment.js"></script>
+      <script src="underscore.js"></script>
+      <script src="d3.slider.js"></script>
 	
 	<meta name="twitter:title" content="My Way of seeing music covers">
 	<meta name="twitter:description" content="Analysis of music covers through time and spatial analysis">
@@ -1139,6 +1145,11 @@
         line-height: 1.7;
         font-weight: 400;
         color: #000
+    }
+    map {
+        width: 400px;
+        height: 300px;
+        align:center
     }
     @media screen and (max-width: 450px) {
         .prose {
@@ -2332,41 +2343,15 @@
 	
 	
 	<h2 class="title-nice">Map representation of songs</h2>
-	
-	<p class="prose">Let's look at the represention on a map of our data.
-	</p>
 
-    <script src="//d3js.org/d3.v3.min.js"></script>
-    <script src="//d3js.org/topojson.v1.min.js"></script>
-    <script>
-
-    var width = 960,
-        height = 1160;
-
-    //var path = d3.geo.path();
-
-    var svg = d3.select("body").append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-    //var url = "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/us.json"
-    var url = "countries.json"
-
-    d3.json(url, function(error, topology) {
-      if (error) throw error;
-      
-      console.log("topojson", topology)
-      var geojson = topojson.feature(topology, topology.objects.units);
-      console.log("geojson", geojson)
-
-      svg.append("path")
-        .datum(topojson.feature(topology, topology.objects.units))
-        .attr("d", d3.geo.path().projection(d3.geo.mercator()));
-
-    });
-
-    </script>
-	
+    <p class="prose" style="align:center;text-align:center">Let's look at the represention on a map of our data.
+       </p>
+    <div>
+        <object data="../data/songs_map.html" style="width:90%; margin-left:62px;height:500px;align:right"></object>
+	   
+    </div>
+    
+    
 	 
 	<h2 class="title-nice">Analysing Genres</h2>
 	<p class="prose">Genre does seem like a differentiating factor here. BLABLABLABLABLA
@@ -2386,10 +2371,117 @@
 	To illustrate our work with a more precise example, we will retrace the story of one of the most covered song <i>My Way</i>, through space and time.
 	</p>
 	
-	<p class="prose">
-	A brief summary : 
-	</p>
-	
+	<div id="slider3" style="width:90%"></div>
+
+
+<script type="text/javascript">
+
+
+var width = 960,
+    height = 1160;
+
+var projection = d3.geo.mercator();
+//    .scale(1280)
+//    .translate([width / 2, height / 2]);
+
+var path = d3.geo.path()
+    .projection(projection);
+
+// Define map size
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// Load topojson file
+var url = "countries.json"
+
+
+d3.json(url, function(error, topology) {
+  if (error) throw error;
+  
+  console.log("topojson", topology)
+  var geojson = topojson.feature(topology, topology.objects.units);
+  console.log("geojson", geojson)
+
+  svg.append("path")
+    .datum(topojson.feature(topology, topology.objects.units))
+    .attr("d", d3.geo.path().projection(d3.geo.mercator())) // "d" defines path to follow
+    .attr("class", "country-boundary"); 
+
+
+    d3.csv("song_story.csv")
+  .row(function(d) {
+    return {
+      index: d.index,
+      artist: d.artist,
+      title: d.title,
+      language: d.language,
+      location: d.location,
+      created_at: parseFloat(d.year),
+      lat: parseFloat(d.LAT),
+      lng: parseFloat(d.LONG),
+    };
+  })
+  .get(function(err, rows) {
+    if (err) return console.error(err);
+    console.log(rows);
+    window.site_data = rows;
+  });
+});
+
+
+
+var displaySites = function(data) {
+var sites = svg.selectAll(".site")
+    .data(data, function(d) {
+      return d.index;
+    });
+
+  console.log(sites);  
+  sites.enter().append("circle")
+      .attr("class", "site")
+      .attr("cx", function(d) {
+        return projection([d.lng, d.lat])[0];
+      })
+      .attr("cy", function(d) {
+        return projection([d.lng, d.lat])[1];
+      })
+      .attr("r", 1)
+      .transition().duration(400)
+        .attr("r", 5);
+
+  sites.exit()
+    .transition().duration(200)
+      .attr("r",1)
+      .remove();
+};
+
+
+//var minDateUnix = moment('1967', "YYYY").unix();
+//var maxDateUnix = moment('2016', "YYYY").unix();
+//var secondsInYear = 1;
+
+var minDateUnix = 1967;
+var maxDateUnix = 2016;
+
+
+
+d3.select('#slider3').call(d3.slider()
+  .axis(true).min(minDateUnix).max(maxDateUnix).step(1)
+  .on("slide", function(evt, value) {
+    var newData = _(site_data).filter( function(site) {
+      console.log(newData);
+      return site.created_at < value;
+    })
+    // console.log("New set size ", newData.length);
+
+    displaySites(newData);
+  })
+);
+
+
+
+</script>
 	<ul class="prose" id="discog-examples">
 	    <li>Claude François released <i>Comme d'habitude</i> in 1962 in France.</li>
 	    <li>In 1969, re-written by Paul Anka, and sung by Franck Sinatra.</li>
@@ -2399,8 +2491,7 @@
 	</ul>
 
 	<main>
-
-	</main>
+    </main>
 
 	<script src="bundle.js?version=1494602952381"></script>
 </body>
