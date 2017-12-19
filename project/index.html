@@ -196,6 +196,7 @@
         letter-spacing: .1em;
         pointer-events: none
     }
+    
     svg.beeswarm .bubble-container circle {
         cursor: pointer
     }
@@ -1328,6 +1329,7 @@
         padding-left: 1rem;
         margin: 1rem 0
     }
+    
     .small {
         font-size: .85rem;
         font-family: 'Atlas Grotesk Web';
@@ -1815,131 +1817,218 @@
 	<div id="topsongs" class="graphic">
 	    <h2 class="title-nice">The Most Covered Songs</h2>
 	    <p class="title-sub">Of 17,000 songs from the Second Hand Song dataset</p>
-	    <!--
-	    <div class="decade-controls"><a class="decade front-curve active">All Decades</a><a class="decade">'10s</a><a class="decade">'00s</a><a class="decade">'90s</a><a class="decade">'80s</a><a class="decade">'70s</a><a class="decade back-curve">'60s</a></div>
-	-->
-	    <table>
-	        <thead>
-	            <tr>
-	            	<th></th>
-	            	<th>Track</th>
-	            	<th>Number of covers</th>
-	            </tr>
-	        </thead>
-	        <tbody>
-	        	<tr>
-	        		<td class="rank">1.</td>
-	        		<td class="track">
-	        			<span class="title">Silent Night</span> - Chet Atkins, 1961
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 364.8px; background-color: rgb(112, 77, 102);">
-	        				<span>43</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">2.</td>
-	        		<td class="track">
-	        			<span class="title">White Christmas</span> - Bing Crosby, 1942
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 313.8976744186px; background-color: rgb(112, 77, 102);">
-	        				<span>37</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">3.</td>
-	        		<td class="track">
-	        			<span class="title">Unchained Melody</span> - Les Baxter, 1955
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 220.576744186px; background-color: rgb(112, 77, 102);">
-	        				<span>26</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">4.</td>
-	        		<td class="track">
-	        			<span class="title">O Holy Night</span> - Tennessee Ernie Ford, 1958
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 212.0930232558px; background-color: rgb(112, 77, 102);">
-	        				<span>25</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">5.</td>
-	        		<td class="track">
-	        			<span class="title">Georgia On My Mind</span> - Hoagy Carmichael, 1930
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 195.1255813953px; background-color: rgb(112, 77, 102);">
-	        				<span>23</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">6.</td>
-	        		<td class="track">
-	        			<span class="title">I'll Be Home For Christmas</span> - Bing Crosby, 1978
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 186.6418604651px; background-color: rgb(112, 77, 102);">
-	        				<span>22</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">7.</td>
-	        		<td class="track">
-	        			<span class="title">Have Yourself A Merry Little Christmas</span> - Barbra Streisand ; Yves Montand, 1967
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 178.1581395349px; background-color: rgb(112, 77, 102);">
-	        				<span>21</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">8.</td>
-	        		<td class="track">
-	        			<span class="title">The Christmas Song</span> - Nat King Cole, 1946
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 178.1581395349px; background-color: rgb(112, 77, 102);">
-	        				<span>21</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">9.</td>
-	        		<td class="track">
-	        			<span class="title">Over The Rainbow</span> - Judy Garland, 1939
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 161.1906976744px; background-color: rgb(112, 77, 102);">
-	        				<span>19</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        	<tr>
-	        		<td class="rank">10.</td>
-	        		<td class="track">
-	        			<span class="title">Stand by Me</span> - Ben E. King, 1961
-	        		</td>
-	        		<td class="reduction">
-	        			<div class="bar" style="width: 152.7069767442px; background-color: rgb(112, 77, 102);">
-	        				<span>18</span>
-	        			</div>
-	        		</td>
-	        	</tr>
-	        </tbody>
-	    </table>
+	    
+	    <div class="decade-controls">
+            <a class="decade front-curve active" href='javascript:myfun("Silent Night", "Chet Atkins", "1961", 42, "White Christmas", "Bing Crosby", "1942", 36, "Unchained Melody", "Les Baxter", "1955", 25, "O Holy Night", "Tennessee Ernie Ford", "1958", 24, "Georgia On My Mind", "Hoagy Carmichael", "1930", 22, "I ll Be Home For Christmas", "Bing Crosby", "1978", 21, "Have Yourself A Merry Little Christmas", "Barbra Streisand and Yves Montand", "1967", 20, "The Christmas Song", "Nat King Cole", "1946", 20, "Over The Rainbow", "Judy Garland", "1939", 18, "The Way You Look Tonight", "Fred Astaire and Ginger Rogers", "1936", 17)'>
+                All Decades</a>
+            <a class="decade" href='javascript:myfun("White Wedding", "Billy Idol", "2000", 7, "Beautiful", "Christina Aguilera", "2002", 5, "Hey Ya!", "Outkast with Gangsta Boo and Eco", "2003", 5, "The First Noel", "Brian Wilson", "2005", 5, "You Raise Me Up (Album Version)", "Josh Groban", "2003", 4, "Thats Life", "Westlife", "2004", 4, "Umbrella", "Rihanna", "2007", 4, "To Where You Are (Album Version)", "Josh Groban", "2001", 4, "Crazy In Love", "Beyoncé", "2003", 4, "Rainbow Connection", "Tommy Newsom", "2001", 4)'>
+                2000</a>
+            <a class="decade" href='javascript:myfun("Hark! The Herald Angels Sing/Gloria (In Excelsis Deo)", "Mariah Carey", "1994", 9, "The Prayer", "Céline Dion", "1998", 8, "Smells Like Teen Spirit", "Nirvana", "1991", 7, "Missing", "Everything But The Girl", "1994", 6, "Make You Feel My Love", "Bob Dylan", "1997", 6, "Black Hole Sun", "Soundgarden", "1994", 6, "Symphony Of Destruction (2004 Digital Remaster)", "Megadeth", "1992", 5, "Hero", "Mariah Carey", "1993", 5, "Ave Maria", "Aaron Neville", "1993", 5, "I Wish", "Tuck and Patti", "1991", 5)'>   '90s</a>
+            <a class="decade" href='javascript:myfun("Hallelujah", "Leonard Cohen", "1984", 14, "Time After Time", "Tuck and Patti", "1988", 9, "Caruso", "Lucio Dalla", "1986", 8, "Love Will Tear Us Apart", "Joy Division", "1980", 8, "Rebel Yell", "Billy Idol", "1983", 7, "For The Love Of You", "Whitney Houston featuring Akon", "1987", 7, "Song To The Siren", "This Mortal Coil", "1983", 7, "Every Breath You Take", "The Police", "1983", 7, "Wayfaring Stranger  (LP Version)", "Emmylou Harris", "1980", 7, "Spain", "Biréli Lagrène", "1985", 7)'>   
+                '80s</a>
+            <a class="decade" href='javascript:myfun("Paranoid", "Black Sabb", "1970", 14, "My Way (Instrumental)", "Dorothy Squires", "1970", 14, "Bridge Over Troubled Water", "Simon and Garfunkel", "1970", 13, "Aint No Sunshine", "Bill Withers", "1971", 13, "Little Drummer Boy", "Charley Pride", "1970", 12, "Come Together", "Ike And Tina Turner", "1970", 11, "Imagine", "John Lennon", "1971", 11, "Whats Going On", "Marvin Gaye", "1971", 10, "The Rose", "Bette Midler", "1979", 10, "(They Long To Be) Close To You", "Carpenters", ", ", 10)'>
+                '70s</a>
+            <a class="decade" href='javascript:myfun("Silent Night", "Chet Atkins", "1961", 43, "Have Yourself A Merry Little Christmas", "Barbra Streisand and Yves Montand", "1967", 21, "Light My Fire", "The Doors", "1967", 16, "Santa Claus Is Comin To Town", "The Beach Boys", "1964", 16, "Sunny (LP Version)", "Booker T and The MGs", "1967", 16, "Smile (2005 Digital Remaster)", "Sandie Shaw", "1967", 15, "Walk On By", "Dionne Warwick", "1964", 14, "Blackbird (Remastered Version)", "Harpers Bizarre", "1969", 14, "Knock on Wood", "Eddie Floyd", "1966", 14, "Im So Lonesome I Could Cry", "Ferlin Husky", ", ", 14)'>'60s</a>
+            <a class="decade back-curve" href='javascript:myfun("Unchained Melody", "Les Baxter", "1955", 26, "O Holy Night", "Tennessee Ernie Ford", "1958", 25, "All The Things You Are", "Dave Brubeck", "1952", 15, "Amazing Grace", "Jesse Fuller", "1955", 15, "My Funny Valentine", "Gerry Mulligan Quartet / Chet Baker", "1952", 15, "Fever", "Little Willie John", "1956", 15, "Winter Wonderland", "Johnny Mathis", "1958", 14, "Autumn Leaves", "Roger Williams", "1955", 14, "When I Fall In Love", "Nat King Cole", "1957", 12, "You Dont Know Me", "Eddy Arnold", "1956", 12)'>
+                '50s</a>
+        </div>
+        
+
+        <table id='mytable'>
+            <tbody>
+      
+            </tbody>
+        </table>
+
+	   <script language="javascript">
+            function myfun(t1, a1, y1, n1, t2, a2, y2, n2, t3, a3, y3, n3, t4, a4, y4, n4, t5, a5, y5, n5, t6, a6, y6, n6, t7, a7, y7, n7, t8, a8, y8, n8, t9, a9, y9, n9, t10, a10, y10, n10, ) {
+
+                if (!document.getElementsByTagName) return;
+                var Table = document.getElementById("mytable");
+                Table.innerHTML = "<thead><tr><th></th><th>Track</th><th>Number of covers</th><tr></thead><tbody></tbody>";
+                /*tr = document.createElement('tr');
+                h1 = document.createElement('th');
+                h2 = document.createElement('th');
+                th2 = document.createTextNode("Track");
+                h2.appendChild(th1);
+                h3 = document.createElement('th');
+                th3 = document.createElement('Number of covers');
+                h3.appendChild(th3);
+                tr.appendChild(h1);
+                tr.appendChild(h2);
+                tr.appendChild(h3);*/
+                var titles = [t1, t2, t3, t4, t5, t6, t7, t8, t9, t10];
+                var artists = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10];
+                var years = [y1, y2, y3, y4, y5, y6, y7, y8, y9, y10];
+                var ncovers = [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10];
+                var ranks = ["1.", "2.", "3.", "4.", "5.", "6.", "7.", "8.", "9.", "10."];
+                tabBody=document.getElementsByTagName("tbody").item(0);
+                for (i = 0; i < 10; i++) {
+                    row=document.createElement("tr");
+                    cellrank = document.createElement("td");
+                    cellrank.setAttribute('class', 'rank');
+                    rank=document.createTextNode(ranks[i]);
+                    cellrank.appendChild(rank);
+
+                    celltrack = document.createElement("td");
+                    celltrack.setAttribute('class', 'track');
+                    spantitle = document.createElement('span');
+                    spantitle.setAttribute('class', 'title');
+                    title = document.createTextNode(titles[i]);
+                    spantitle.appendChild(title);
+                    artist_year = document.createTextNode(" - " + artists[i] + ", " + years[i]);
+                    celltrack.appendChild(spantitle);
+                    celltrack.appendChild(artist_year);
+
+                    cellreduc = document.createElement('td');
+                    cellreduc.setAttribute('class', 'reduction');
+                    divbar = document.createElement('div');
+                    divbar.setAttribute('class', 'bar');
+                    var size = (400/43)*ncovers[i];
+                    var style_attr = "width: " + size.toString() + "px; background-color: rgb(112, 77, 102);";
+                    divbar.setAttribute('style', style_attr);
+                    spanbar = document.createElement('span');
+                    spanbartext = document.createTextNode(ncovers[i]);
+                    spanbar.appendChild(spanbartext);
+
+                    divbar.appendChild(spanbar);
+                    cellreduc.appendChild(divbar);
+
+                    row.appendChild(cellrank);
+                    row.appendChild(celltrack);
+                    row.appendChild(cellreduc);
+                    
+                    tabBody.appendChild(row);
+                }
+                
+            }
+
+       </script>
+       <!--
+        	    <table>
+        	        <thead>
+        	            <tr>
+        	            	<th></th>
+        	            	<th>Track</th>
+        	            	<th>Number of covers</th>
+        	            </tr>
+        	        </thead>
+        	        <tbody>
+        	        	<tr>
+        	        		<td class="rank">1.</td>
+        	        		<td class="track">
+        	        			<span class="title">Silent Night</span> - Chet Atkins, 1961
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 364.8px; background-color: rgb(112, 77, 102);">
+        	        				<span>42</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">2.</td>
+        	        		<td class="track">
+        	        			<span class="title">White Christmas</span> - Bing Crosby, 1942
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 313.8976744186px; background-color: rgb(112, 77, 102);">
+        	        				<span>36</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">3.</td>
+        	        		<td class="track">
+        	        			<span class="title">Unchained Melody</span> - Les Baxter, 1955
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 220.576744186px; background-color: rgb(112, 77, 102);">
+        	        				<span>25</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">4.</td>
+        	        		<td class="track">
+        	        			<span class="title">O Holy Night</span> - Tennessee Ernie Ford, 1958
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 212.0930232558px; background-color: rgb(112, 77, 102);">
+        	        				<span>24</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">5.</td>
+        	        		<td class="track">
+        	        			<span class="title">Georgia On My Mind</span> - Hoagy Carmichael, 1930
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 195.1255813953px; background-color: rgb(112, 77, 102);">
+        	        				<span>22</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">6.</td>
+        	        		<td class="track">
+        	        			<span class="title">I'll Be Home For Christmas</span> - Bing Crosby, 1978
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 186.6418604651px; background-color: rgb(112, 77, 102);">
+        	        				<span>21</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">7.</td>
+        	        		<td class="track">
+        	        			<span class="title">Have Yourself A Merry Little Christmas</span> - Barbra Streisand and Yves Montand, 1967
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 178.1581395349px; background-color: rgb(112, 77, 102);">
+        	        				<span>20</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">8.</td>
+        	        		<td class="track">
+        	        			<span class="title">The Christmas Song</span> - Nat King Cole, 1946
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 178.1581395349px; background-color: rgb(112, 77, 102);">
+        	        				<span>20</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">9.</td>
+        	        		<td class="track">
+        	        			<span class="title">Over The Rainbow</span> - Judy Garland, 1939
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 161.1906976744px; background-color: rgb(112, 77, 102);">
+        	        				<span>18</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        	<tr>
+        	        		<td class="rank">10.</td>
+        	        		<td class="track">
+        	        			<span class="title">The Way You Look Tonight</span> - Fred Astaire and Ginger Rogers, 1936
+        	        		</td>
+        	        		<td class="reduction">
+        	        			<div class="bar" style="width: 152.7069767442px; background-color: rgb(112, 77, 102);">
+        	        				<span>17</span>
+        	        			</div>
+        	        		</td>
+        	        	</tr>
+        	        </tbody>
+        	    </table>
+            -->
 	</div>
+
 	
 	<p class="prose">Intuitively, <i>The most covered song</i> definitelyis the most covered. We can see that we want huge dicks in our mouth.
 	</p>
@@ -2245,6 +2334,37 @@
 	
 	<p class="prose">Let's look at the represention on a map of our data.
 	</p>
+
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    <script src="//d3js.org/topojson.v1.min.js"></script>
+    <script>
+
+    var width = 960,
+        height = 1160;
+
+    //var path = d3.geo.path();
+
+    var svg = d3.select("body").append("svg")
+        .attr("width", width)
+        .attr("height", height);
+
+    //var url = "https://gist.githubusercontent.com/mbostock/4090846/raw/d534aba169207548a8a3d670c9c2cc719ff05c47/us.json"
+    var url = "countries.json"
+
+    d3.json(url, function(error, topology) {
+      if (error) throw error;
+      
+      console.log("topojson", topology)
+      var geojson = topojson.feature(topology, topology.objects.units);
+      console.log("geojson", geojson)
+
+      svg.append("path")
+        .datum(topojson.feature(topology, topology.objects.units))
+        .attr("d", d3.geo.path().projection(d3.geo.mercator()));
+
+    });
+
+    </script>
 	
 	 
 	<h2 class="title-nice">Analysing Genres</h2>
