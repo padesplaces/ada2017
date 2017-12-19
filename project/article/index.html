@@ -2274,7 +2274,7 @@
     </div>
 
     <p class="prose" style="margin-top:10px">
-        On this map, we observe that there is no difference between the repartition of original songs and their covers. They mostly born in occidental countries : United States and european countries ; but also in Brazil and Australia. If we look closer at european countries, we see that the 4 countries with the most covered songs are France, United Kingdom, Italy and Germany. If we only look at the covers in Europe, we find the same 4 countries, as well as Sweden.
+        On this map, we observe that there is no difference between the repartition of original songs and their covers. They are mostly born in occidental countries : United States and european countries ; but also in Brazil and Australia. If we look closer at european countries, we see that the 4 countries with the most covered songs are France, United Kingdom, Italy and Germany. If we only look at the covers in Europe, we find the same 4 countries, as well as Sweden.
     </p>
     
 	 
@@ -2303,6 +2303,17 @@
 	To illustrate our work with a more precise example, we will retrace the story of one of the most covered song <i>My Way</i>, through space and time.
 	</p>
 	
+    <p class="prose small" style="margin-left:120px;margin-top:40px">
+        <i>My way</i> is a perfect illustration of how culture spread around the world.
+        Indeed, the song led to 281 music covers in 33 different countries over a 49 years period.
+        Even if the original song was French, written by Claude François, it was mostly covered in United States (82 music covers) and United Kingdom (39 music covers) following by its native country, France (24 music covers).
+
+    </p>
+
+    <p class="prose small" style="margin-right:150px">
+        With the interactive map below, you can follow the apparitions in the world and through time of <i>My Way</i> covers. We can see that covers are mostly european, but the song has been covered in every continent. The french song is first covered in Canada by Michel Pagliaro, and then in United States by Franck Sinatra, with lyrics we-ritten by Paul Anka. The song then travels all around the world, and it was covered by diverse artists, from Joan Baez to Sid Vicious, Elvis Presley and Aretha Franklin. 
+    </p>
+
 	<div id="slider3" style="width:90%"></div>
 
 
@@ -2378,7 +2389,7 @@ var sites = svg.selectAll(".site")
       .attr("cy", function(d) {
         return projection([d.lng, d.lat])[1];
       })
-      .attr("r", 1)
+      .attr("r", 10)
       .transition().duration(400)
         .attr("r", 5);
 
@@ -2414,13 +2425,7 @@ d3.select('#slider3').call(d3.slider()
 
 
 </script>
-	<ul class="prose" id="discog-examples">
-	    <li>Claude François released <i>Comme d'habitude</i> in 1962 in France.</li>
-	    <li>In 1969, re-written by Paul Anka, and sung by Franck Sinatra.</li>
-	    <li>Rappers like B2OBA and Jul tried to cover it as rap songs.</li>
-	    <li>Joan Baez will try to live up to this song but it will be a disaster.</li>
 	
-	</ul>
 
 	<main>
     </main>
