@@ -1546,6 +1546,79 @@
 		ga('create', 'UA-90567923-1', 'auto');
 		ga('send', 'pageview');
 	</script>
+    <script>
+    window.onload = function () {
+      
+    CanvasJS.addColorSet("customSet",
+                    [
+                    "#2c3e50",
+                    "#7f8c8d",
+                    "#ecf0f1",
+                    "#e67e22",
+                    "#f1c40f",
+                    "#2ecc71",
+                    "#16a085",
+                    "#3498db",
+                    "#9b59b6",
+                    "#e74c3c"
+                    ]);
+
+    var chart = new CanvasJS.Chart("chartContainerOriginals", {
+        animationEnabled: true,
+        colorSet:"customSet",
+        data: [{
+            type: "doughnut",
+            startAngle: 60,
+            innerRadius: 90,
+            indexLabelFontSize: 17,
+            indexLabel: "{label} - #percent%",
+            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+            dataPoints: [
+                { y: 1182, label: "Rock" },
+                { y: 670, label: "Alternative" },
+                { y: 514, label: "Other" },
+                { y: 391, label: "Pop" },
+                { y: 357, label: "Soul" },
+                { y: 289, label: "Blues" },
+                { y: 266, label: "Country" },
+                { y: 219, label: "Jazz" },
+                { y: 139, label: "Vocal" },
+                { y: 137, label: "R&B/Soul" }
+            ]
+        }]
+    });
+
+    chart.render();
+
+    var chart2 = new CanvasJS.Chart("chartContainerCovers", {
+        animationEnabled: true,
+        colorSet:"customSet",
+        data: [{
+            type: "doughnut",
+            startAngle: 60,
+            innerRadius: 90,
+            indexLabelFontSize: 17,
+            indexLabel: "{label} - #percent%",
+            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+            dataPoints: [
+                { y: 1456, label: "Rock" },
+                { y: 1198, label: "Other" },
+                { y: 848, label: "Jazz" },
+                { y: 765, label: "Alternative" },
+                { y: 553, label: "Blues" },
+                { y: 552, label: "Pop" },
+                { y: 455, label: "Soul" },
+                { y: 408, label: "Country" },
+                { y: 307, label: "Vocal" },
+                { y: 266, label: "Holiday" }
+            ]
+        }]
+    });
+
+    chart2.render();
+
+    }
+    </script>
 	</head>
 <body class="tk-pt-serif">
 
@@ -2356,11 +2429,17 @@
 	<h2 class="title-nice">Analysing Genres</h2>
 	<p class="prose">Genre does seem like a differentiating factor here. BLABLABLABLABLA
 	</p>
+
+    <div id="chartContainerOriginals" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 	
-	<p class="prose">BLABLABLABLA PUTE BLABLABLABLABLA
+	<p class="prose">ORIGINAL SONGS GENRE
 	</p>
 	
-	<p class="prose">BLABLABLABLABLA SALOPE BLABLABLABLA
+    <div id="chartContainerCovers" style="height: 370px; width: 100%;"></div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+	<p class="prose">COVER SONGS GENRE
 	</p>
 	
 
