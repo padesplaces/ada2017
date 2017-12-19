@@ -1,0 +1,282 @@
+index,artist,title,language,location,year,LAT,LONG,SHORT_NAME
+0,Claude François,Comme d'habitude,French,France,1967,46.0,2.0,France
+1,Michel Pagliaro,Comme d'habitude,French,Canada,1968,60.0,-96.0,Canada
+2,Michel Sardou,Comme d'habitude,French,France,1978,46.0,2.0,France
+3,Hervé Vilard,Comme d'habitude,French,France,1984,46.0,2.0,France
+4,Mireille Mathieu,Comme d'habitude,French,France,1985,46.0,2.0,France
+5,Ruggero Raimondi,Comme d'habitude,French,Italy,1988,42.833333,12.833333,Italy
+6,Florent Pagny,Comme d'habitude,French,France,1989,46.0,2.0,France
+7,Richard Anthony,Comme d'habitude,French,France,1996,46.0,2.0,France
+8,Herbert Léonard,Comme d'habitude,French,France,1998,46.0,2.0,France
+9,Gunvor,Comme d'habitude,English,Switzerland,1970,47.0,8.0,Switzerland
+10,Elli Medeiros,Comme d'habitude,French,Uruguay,2008,-33.0,-56.0,Uruguay
+11,Eddy et les vedettes,Comme d'habitude,French,Belgium,2010,50.833333,4.0,Belgium
+12,Tale of Voices,Comme d'habitude,French,France,2012,46.0,2.0,France
+13,Liliane Saint-Pierre,Comme d'habitude,French,Belgium,2014,50.833333,4.0,Belgium
+14,M. Pokora,Comme d'habitude,French,France,2016,46.0,2.0,France
+15,Charlie Byrd,My Way,Instrumental,United States,1969,39.828175,-98.5795,United States
+16,Chet Atkins,My Way,Instrumental,United States,1969,39.828175,-98.5795,United States
+17,Bill Watrous with The Walter Raim Concept,My Way,Instrumental,United States,1969,39.828175,-98.5795,United States
+18,Ferrante & Teicher,My Way,Instrumental,United States,1969,39.828175,-98.5795,United States
+19,Mantovani and His Orchestra,My Way,Instrumental,United Kingdom,1970,54.0,-4.0,United Kingdom
+20,Peter Nero,My Way,Instrumental,United States,1970,39.828175,-98.5795,United States
+21,The StereoAction Orchestra,My Way,Instrumental,United Kingdom,1971,54.0,-4.0,United Kingdom
+22,Gene Ammons,My Way,Instrumental,United States,1971,39.828175,-98.5795,United States
+23,The Don Reeve Sound,My Way (Comme d'habitude),Instrumental,United Kingdom,1971,54.0,-4.0,United Kingdom
+24,Phil Allen,My Way,Instrumental,United Kingdom,1971,54.0,-4.0,United Kingdom
+25,Bert Kaempfert and His Orchestra,My Way,Instrumental,Germany,1972,51.5,10.5,Germany
+26,Takeshi Inomata,My Way,Instrumental,Japan,1975,36.0,138.0,Japan
+27,Jean-Claude Pelletier et son orchestre,My Way,Instrumental,France,1976,46.0,2.0,France
+28,Claude Denjean,My Way,Instrumental,France,1977,46.0,2.0,France
+29,Franck Pourcel Orchestra,My Way,Instrumental,France,1978,46.0,2.0,France
+30,Yuzuru Sera,My Way,InstrumentalSolopiano.,Japan,1978,36.0,138.0,Japan
+31,Caravelli,Comme d'habitude,Instrumental,France,1978,46.0,2.0,France
+32,Ady Zehnpfennig,My Way,Instrumental,Germany,1979,51.5,10.5,Germany
+33,Pino Calvi,My Way,Instrumental,Italy,1980,42.833333,12.833333,Italy
+34,Richard Clayderman,My Way,Instrumental,France,1980,46.0,2.0,France
+35,Claude Colombier,My Way,Instrumental,France,1981,46.0,2.0,France
+36,Fausto Papetti,My Way,Instrumental,Italy,1982,42.833333,12.833333,Italy
+37,Henk Borghuis,My Way,Instrumental,Netherlands,1982,52.5,5.75,Netherlands
+38,Pierre Buzon,Comme d'habitude,Instrumental,France,1985,46.0,2.0,France
+39,Berndt Egerbladh Trio,My Way,Instrumental,Sweden,1985,62.0,15.0,Sweden
+40,Gunnar Lundström,My Way,Instrumental,Sweden,1986,62.0,15.0,Sweden
+41,Barney Wilen,My Way,Instrumental,France,1987,46.0,2.0,France
+42,Alex Bollard & The London Starlight Orchestra,My Way,Instrumental,Netherlands,1988,52.5,5.75,Netherlands
+43,Lars Roos,My Way,Instrumental,Sweden,1992,62.0,15.0,Sweden
+44,Jonny Teupen und das Orchester Bruno Bertone,My Way,Instrumental,Germany,1992,51.5,10.5,Germany
+45,Brazilian Tropical Orchestra,My Way,Instrumental,Brazil,1993,-10.0,-55.0,Brazil
+46,Susan Freeman,My Way,InstrumentalSolopiano.,United States,1993,39.828175,-98.5795,United States
+47,John Arpin,My Way,Instrumental,Canada,1995,60.0,-96.0,Canada
+48,James Last and Orchestra,My Way,Instrumental,Germany,1997,51.5,10.5,Germany
+49,Newell Oler,My Way,Instrumentalsolopiano.,United States,1998,39.828175,-98.5795,United States
+50,Per Nielsen,My Way,Instrumental,Denmark,2001,56.0,10.0,Denmark
+51,Toots Thielemans & Kenny Werner,Sinatra Medley. All the Way / My Way,Instrumental,Belgium,2001,50.833333,4.0,Belgium
+52,Coba [1],マイ・ウェイ [My Way],Instrumental,Japan,2002,36.0,138.0,Japan
+53,David Osborne,My Way,Instrumental,United States,2002,39.828175,-98.5795,United States
+54,Opium Jukebox,My Way,Instrumental,United Kingdom,2002,54.0,-4.0,United Kingdom
+55,Dominick Farinacci Quartet,My Way,Instrumental,United States,2003,39.828175,-98.5795,United States
+56,Bobby Durham / Lorenzo Conte / Massimo Faraò,My Way,Instrumental,Italy,2003,42.833333,12.833333,Italy
+57,Edward Simoni,My Way,English,Poland,2003,52.0,20.0,Poland
+58,André Rieu,My Way,English,Netherlands,1994,52.5,5.75,Netherlands
+59,Christopher West,My Way,Instrumental,United States,2006,39.828175,-98.5795,United States
+60,Stan Tracey & Bobby Wellins,Comme d'habitude,Instrumental,United Kingdom,2007,54.0,-4.0,United Kingdom
+61,Benny Weinbeck,Comme d'habitude,Instrumental,United States,2009,39.828175,-98.5795,United States
+62,Michael Hirte,My Way,Instrumental,Croatia,2009,45.166667,15.5,Croatia
+63,Jim McDonough,My Way,Instrumental,United States,2009,39.828175,-98.5795,United States
+64,Faudel/Khaled/Rachid Taha,Comme d'habitude,Arabic,Algeria,2000,28.0,3.0,Algeria
+65,Dragan Stojnić,Moj svet,Croatian,Croatia,1996,45.166667,15.5,Croatia
+66,Gert Günther,Du var så ærlig,Danish,Denmark,1975,56.0,10.0,Denmark
+67,Ron Davis [1],Mijn leven,Dutch,Canada,1971,60.0,-96.0,Canada
+68,Eddy Smets,Mijn leven,Dutch,Belgium,1974,50.833333,4.0,Belgium
+69,Francky Perez,Mijn leven,Dutch,United States,1983,39.828175,-98.5795,United States
+70,Nicole & Hugo,Mijn leven,Dutch,Belgium,2009,50.833333,4.0,Belgium
+71,André Hazes,Waarom,Dutch,Netherlands,1980,52.5,5.75,Netherlands
+72,André Hazes & Peter Beense,Waarom (My Way),Dutch,Netherlands,2007,52.5,5.75,Netherlands
+73,André Hazes jr.,Waarom,Dutch,Netherlands,2014,52.5,5.75,Netherlands
+74,Will Tura,Alleen gaan,Dutch,Belgium,1998,50.833333,4.0,Belgium
+75,Raymond van het Groenewoud,Zoals Gewoonlijk,Dutch,Belgium,2004,50.833333,4.0,Belgium
+76,Frank Sinatra,My Way,English,United States,1969,39.828175,-98.5795,United States
+77,Top of the Pops,My Way,English,United Kingdom,1969,54.0,-4.0,United Kingdom
+78,Jerry Vale,My Way,English,United States,1969,39.828175,-98.5795,United States
+79,The Anita Kerr Singers,My Way,English,United States,1969,39.828175,-98.5795,United States
+80,Paul Anka,My Way,English,Canada,1969,60.0,-96.0,Canada
+81,Roy Drusky,My Way,English,United States,1969,39.828175,-98.5795,United States
+82,Eddy Arnold,My Way,English,United States,1969,39.828175,-98.5795,United States
+83,Lore'z Alexandria,My Way,English,United States,1969,39.828175,-98.5795,United States
+84,Andy Williams,My Way,English,United States,1969,39.828175,-98.5795,United States
+85,Bill Medley,My Way,English,United States,1969,39.828175,-98.5795,United States
+86,The Platters,My Way,English,United States,1969,39.828175,-98.5795,United States
+87,John Davidson,My Way,English,United States,1969,39.828175,-98.5795,United States
+88,Steve Lawrence,My Way,English,United States,1969,39.828175,-98.5795,United States
+89,George Wright,My Way,English,United States,1969,39.828175,-98.5795,United States
+90,Hugo Montenegro,My Way,English,United States,1969,39.828175,-98.5795,United States
+91,Joe Dolan,My Way,English,Ireland,1969,53.0,-8.0,Ireland
+92,Dionne Warwick,My Way,English,United States,1970,39.828175,-98.5795,United States
+93,Glen Campbell,My Way,English,United States,1970,39.828175,-98.5795,United States
+94,Shirley Bassey,My Way,English,United Kingdom,1970,54.0,-4.0,United Kingdom
+95,Irene Reid,My Way,English,United States,1970,39.828175,-98.5795,United States
+96,Salena Jones,My Way,English,United States,1970,39.828175,-98.5795,United States
+97,Samantha Jones,My Way,English,United Kingdom,1970,54.0,-4.0,United Kingdom
+98,Joe Berluck,My Way,English,Belgium,1970,50.833333,4.0,Belgium
+99,Sammy Davis Jr.,My Way,English,United States,1970,39.828175,-98.5795,United States
+100,Dorothy Squires,My Way,English,United Kingdom,1970,54.0,-4.0,United Kingdom
+101,Brook Benton,My Way,English,United States,1970,39.828175,-98.5795,United States
+102,Vera Lynn,My Way,English,United Kingdom,1970,54.0,-4.0,United Kingdom
+103,Matt Monro,My Way,English,United Kingdom,1970,54.0,-4.0,United Kingdom
+104,John Raitt,My Way,English,United States,1970,39.828175,-98.5795,United States
+105,Chairmen of the Board,My Way,English,United States,1970,39.828175,-98.5795,United States
+106,Al Martino,My Way,English,United States,1970,39.828175,-98.5795,United States
+107,Tom Jones,My Way,English,United Kingdom,1971,54.0,-4.0,United Kingdom
+108,Helen O'Connell,My Way,English,United States,1971,39.828175,-98.5795,United States
+109,Jackie Wilson,My Way,English,United States,1971,39.828175,-98.5795,United States
+110,The Links,My Way,English,United States,1971,39.828175,-98.5795,United States
+111,Peter Horton,My Way,English,Czech Republic,1971,49.75,15.0,Czech Republic
+112,Lovelace Watkins,My Way,English,United States,1971,39.828175,-98.5795,United States
+113,Joe Frazier,My Way,English,United States,1971,39.828175,-98.5795,United States
+114,Nina Simone,My Way,English,United States,1971,39.828175,-98.5795,United States
+115,Dean Reed,Я всегда все делал по-…,English,United States,1972,39.828175,-98.5795,United States
+116,Al Saxon,My Way,English,United Kingdom,1972,54.0,-4.0,United Kingdom
+117,Edward Woodward,My Way,English,United Kingdom,1972,54.0,-4.0,United Kingdom
+118,Elvis Presley,My Way,English,United States,1973,39.828175,-98.5795,United States
+119,Cliff Richard,My Way,English,United Kingdom,1973,54.0,-4.0,United Kingdom
+120,Gro Anita Schønn,My Way,English,Norway,1973,62.0,10.0,Norway
+121,Bruce Forsyth,You Made Me So Very Happy / Gentle on M…,5-songmedley.,United Kingdom,1973,54.0,-4.0,United Kingdom
+122,Jan Høiland,My Way,English,Norway,1973,62.0,10.0,Norway
+123,The Peddlers,My Way,English,United Kingdom,1974,54.0,-4.0,United Kingdom
+124,Major Harris,My Way,English,United States,1974,39.828175,-98.5795,United States
+125,Frank Lammar,My Way,English,United Kingdom,1975,54.0,-4.0,United Kingdom
+126,Johnny Rodriguez,My Way,English,United States,1975,39.828175,-98.5795,United States
+127,Tammy Jones,My Way,English,United Kingdom,1975,54.0,-4.0,United Kingdom
+128,Ryan,Comme d'habitude,English,United Kingdom,1975,54.0,-4.0,United Kingdom
+129,Brenda Lee,My Way,English,United States,1975,39.828175,-98.5795,United States
+130,Anita Harris,My Way,English,United Kingdom,1976,54.0,-4.0,United Kingdom
+131,Mike Brant,My Way,English,Israel,1976,31.5,34.75,Israel
+132,Raul Seixas,My Way/Trouble,Requestasynchronizationlicense,Brazil,1977,-10.0,-55.0,Brazil
+133,Sex Pistols,My Way,English,United Kingdom,1978,54.0,-4.0,United Kingdom
+134,Jerry Walker,My Way,English,United States,1978,39.828175,-98.5795,United States
+135,Whispering Band,My Way,English,Sweden,1978,62.0,15.0,Sweden
+136,Jimmy Ellis,My Way,English,United States,1978,39.828175,-98.5795,United States
+137,Johnny Farago,My Way,English,Canada,1978,60.0,-96.0,Canada
+138,Sid Vicious,My Way,English,United States,1979,39.828175,-98.5795,United States
+139,Aaron [US],His Way,English,United States,1979,39.828175,-98.5795,United States
+140,Chris Conrad,My Way,English,United Kingdom,1979,54.0,-4.0,United Kingdom
+141,Svante Thuresson,My Way,English,Sweden,1979,62.0,15.0,Sweden
+142,Martha Miyake,My Way,English,Japan,1979,36.0,138.0,Japan
+143,Jim Davidson [1],My Way,English,United Kingdom,1980,54.0,-4.0,United Kingdom
+144,Tiny Tim,My Way,English,United States,1980,39.828175,-98.5795,United States
+145,Ronnie Tober,My Way,English,Netherlands,1981,52.5,5.75,Netherlands
+146,Jerry Deewood,My Way,English,Belgium,1982,50.833333,4.0,Belgium
+147,Lee Towers,My Way,English,Netherlands,1983,52.5,5.75,Netherlands
+148,Danny King,My Way,English,United Kingdom,1984,54.0,-4.0,United Kingdom
+149,Will Tura,My Way,English,Belgium,1985,50.833333,4.0,Belgium
+150,Töreboda musikkår och storband,My Way,English,Sweden,1986,62.0,15.0,Sweden
+151,Boba Stefanović,My Way,English,Serbia,1987,44.0,21.0,Serbia
+152,Elvis Wade,My Way,English,United States,1987,39.828175,-98.5795,United States
+153,Ty Tender & The Rockin' Fifties,My Way,English,Austria,1988,47.333333,13.333332999999998,Austria
+154,Will Ferdy,My Way,English,Belgium,1992,50.833333,4.0,Belgium
+155,Fiorello,My Way,English,Italy,1992,42.833333,12.833333,Italy
+156,Kramer,My Way,English,United States,1993,39.828175,-98.5795,United States
+157,Hubbas,My Way (Comme d'habitude),English,Sweden,1994,62.0,15.0,Sweden
+158,Dread Zeppelin,My Way,English,United States,1995,39.828175,-98.5795,United States
+159,Shane MacGowan,My Way,English,Ireland,1996,53.0,-8.0,Ireland
+160,The Bollock Brothers,My Way,English,United Kingdom,1996,54.0,-4.0,United Kingdom
+161,Paul Anka con Julio Iglesias,My Way (A mi manera),Requestasynchronizationlicense,Canada,1996,60.0,-96.0,Canada
+162,Brian Evans,My Way,English,United States,1996,39.828175,-98.5795,United States
+163,Audio Active,My Way,English,Japan,1997,36.0,138.0,Japan
+164,Australian Blonde,My Way,English,Spain,1998,40.0,-4.0,Spain
+165,Stan Ridgway,My Way,English,United States,1998,39.828175,-98.5795,United States
+166,Kjell Elvis,My Way,English,Norway,1998,62.0,10.0,Norway
+167,Los Piratas,My Way,English,Spain,1998,40.0,-4.0,Spain
+168,Doran,My Way,English,Belgium,1998,50.833333,4.0,Belgium
+169,Paul Anka with Frank Sinatra,My Way,English,United States,1998,39.828175,-98.5795,United States
+170,Bobo Moreno + Singers & RadioUnderholdningsOrkestret,My Way,English,Denmark,1999,56.0,10.0,Denmark
+171,Dean Michael,My Way,English,Denmark,2000,56.0,10.0,Denmark
+172,Keely Smith,My Way,English,United States,2001,39.828175,-98.5795,United States
+173,Rita Forte,My Way,English,Italy,1985,42.833333,12.833333,Italy
+174,Herman Brood,My Way,English,Netherlands,2001,52.5,5.75,Netherlands
+175,Robbie Williams,My Way,English,United Kingdom,2001,54.0,-4.0,United Kingdom
+176,"Loa Falkman, Meta Roos; Malmö Fire Brigade Big Band",My Way,English,Sweden,2001,62.0,15.0,Sweden
+177,Jesper Lundgaard,Danny Boy/My Way,Requestasynchronizationlicense,Denmark,2002,56.0,10.0,Denmark
+178,Little Milton,My Way,English,United States,2002,39.828175,-98.5795,United States
+179,Joe Martino,My Way,English,United States,2003,39.828175,-98.5795,United States
+180,Big Fat Snake with TCB Band & Sweet Inspirations,My Way,English,United States,2003,39.828175,-98.5795,United States
+181,Don Thomas [1],My Way,English,United States,2004,39.828175,-98.5795,United States
+182,Andy Lee Lang & The Marco Zarello Big Band,My Way,English,Austria,2004,47.333333,13.333332999999998,Austria
+183,Özdemir Erdoğan,My Way,English,Turkey,2004,39.059012,34.911546,Turkey
+184,Rinaldo Viana,My Way,English,Brazil,2004,-10.0,-55.0,Brazil
+185,Mina,My Way,English,Italy,2005,42.833333,12.833333,Italy
+186,Richard Shelton,My Way,English,United Kingdom,2005,54.0,-4.0,United Kingdom
+187,John Beardsley,My Way,English,United States,2005,39.828175,-98.5795,United States
+188,G4,My Way,English,United Kingdom,2005,54.0,-4.0,United Kingdom
+189,Gary Willner,My Way,English,United States,2005,39.828175,-98.5795,United States
+190,Aretha Franklin,My Way,English,United States,2006,39.828175,-98.5795,United States
+191,Tornado,My Way,English,Japan,2006,36.0,138.0,Japan
+192,Christopher Lee,My Way,English,United Kingdom,2006,54.0,-4.0,United Kingdom
+193,Grace Mahya,My Way,English,Japan,2006,36.0,138.0,Japan
+194,Tim Patrick,My Way,English,United States,2006,39.828175,-98.5795,United States
+195,Jeff Duff Band,My Way,English,Australia,2006,-25.0,135.0,Australia
+196,Bob Tostes,My Way,English,Brazil,2006,-10.0,-55.0,Brazil
+197,The TCB Band & The Sweet Inspirations featuring Maarten Jansen,My Way,English,United States,2006,39.828175,-98.5795,United States
+198,Ray Quinn,My Way,English,New Zealand,2007,-42.0,174.0,New Zealand
+199,Paul Anka & Jon Bon Jovi,My Way,English,Canada,2007,60.0,-96.0,Canada
+200,Karsten Holm,My Way,English,Denmark,2007,56.0,10.0,Denmark
+201,Holly Wilson,My Way,English,Australia,2007,-25.0,135.0,Australia
+202,Jean-Luc Lahaye en duo avec Gloria Gaynor,My Way,English,United States,2008,39.828175,-98.5795,United States
+203,The Zimmers,My Way,English,United Kingdom,2008,54.0,-4.0,United Kingdom
+204,Northern Kings,My Way,English,Finland,2008,64.0,26.0,Finland
+205,Geoff Sewell,My Way,English,New Zealand,2008,-42.0,174.0,New Zealand
+206,Mark Vincent,My Way,English,Australia,2009,-25.0,135.0,Australia
+207,Micah P. Hinson,My Way,English,United States,2009,39.828175,-98.5795,United States
+208,Dany Brillant,My Way,English,France,2009,46.0,2.0,France
+209,Matteo Brancaleoni,My Way,English,Italy,2009,42.833333,12.833333,Italy
+210,Teddy Rune,My Way,English,Denmark,2009,56.0,10.0,Denmark
+211,Zsolt Homonnay,My Way,English,Hungary,1999,47.0,20.0,Hungary
+212,Cristian Imparato,My Way,English,Italy,2010,42.833333,12.833333,Italy
+213,Ray Ellis [1],My Way,English,United States,2010,39.828175,-98.5795,United States
+214,Jon Secada,My Way,English,United States,2010,39.828175,-98.5795,United States
+215,Josh Dubovie,My Way,English,United Kingdom,2011,54.0,-4.0,United Kingdom
+216,Patti Austin,My Way,English,United States,2011,39.828175,-98.5795,United States
+217,Daniel Küblböck,My Way,English,New Zealand,2011,-42.0,174.0,New Zealand
+218,Birthe Kjær,My Way,English,Denmark,2011,56.0,10.0,Denmark
+219,"Landau Eugene Murphy, Jr.",My Way,English,United States,2011,39.828175,-98.5795,United States
+220,Wade Tower,My Way,English,United States,2011,39.828175,-98.5795,United States
+221,Chris Mann,My Way,English,United States,2012,39.828175,-98.5795,United States
+222,Tom Evers,My Way,English,France,2012,46.0,2.0,France
+223,Ricky Norton with James Burton,My Way,English,United States,2012,39.828175,-98.5795,United States
+224,Paul Anka - Garou,My Way,English,Canada,2013,60.0,-96.0,Canada
+225,Sol3 Mio,My Way,English,New Zealand,2013,-42.0,174.0,New Zealand
+226,Tri Tenor Cymru,My Way,English,United Kingdom,2013,54.0,-4.0,United Kingdom
+227,The Texas Tenors,My Way,English,United States,2013,39.828175,-98.5795,United States
+228,Juraya,My Way,Instrumental,Switzerland,1999,47.0,8.0,Switzerland
+229,Daniel Boaventura,My Way,English,Brazil,2014,-10.0,-55.0,Brazil
+230,Roger Cicero mit Paul Anka,My Way,English,Canada,2015,60.0,-96.0,Canada
+231,Roger Cicero,My Way,English,Germany,2015,51.5,10.5,Germany
+232,Jazzkören med Goodmankvartetten,My Way,English,Sweden,2015,62.0,15.0,Sweden
+233,Ricky Norton & Candice Parise,My Way,English,France,2015,46.0,2.0,France
+234,Rio - The Voice of Elvis,My Way,English,Germany,2016,51.5,10.5,Germany
+235,Il Volo,My Way,English,Italy,2016,42.833333,12.833333,Italy
+236,Ben L'Oncle Soul,My Way,English,France,2016,46.0,2.0,France
+237,Jim Armstrong,My Way,English,United Kingdom,2016,54.0,-4.0,United Kingdom
+238,Seth MacFarlane,My Way,English,United States,2016,39.828175,-98.5795,United States
+239,Karel Gott,My Way,English,Czech Republic,1990,49.75,15.0,Czech Republic
+240,Raphael,My Way,English,Spain,1999,40.0,-4.0,Spain
+241,Larry Elgart and His Manhattan Swing Orchestra,"Hooked on a Star [Medley of: New York, …",Instrumental,United States,1982,39.828175,-98.5795,United States
+242,Eric Miller & His Orchestra,My Way,Instrumental,Croatia,1991,45.166667,15.5,Croatia
+243,Gary Motley,My Way,Instrumental,United States,1998,39.828175,-98.5795,United States
+244,Steelasophical,My Way,Instrumental,United Kingdom,2000,54.0,-4.0,United Kingdom
+245,Eino Grön,Minun tieni,Finnish,Finland,1974,64.0,26.0,Finland
+246,Arja Koriseva,Minun tieni,Finnish,Finland,2007,64.0,26.0,Finland
+247,Markku Laamanen,Minun tieni,Finnish,Finland,2009,64.0,26.0,Finland
+248,Masa Mainds,Minun tieni,Finnish,Finland,2016,64.0,26.0,Finland
+249,Mary Roos,So leb' dein Leben,German,Germany,1970,51.5,10.5,Germany
+250,Bata Illic,So leb dein Leben,German,Croatia,1971,45.166667,15.5,Croatia
+251,Rudi Schuricke,So leb' dein Leben,German,Germany,1973,51.5,10.5,Germany
+252,Peter Orloff,So leb dein Leben,German,Germany,1978,51.5,10.5,Germany
+253,Belina,So leb dein Leben,German,Poland,1981,52.0,20.0,Poland
+254,Mireille Mathieu,So leb dein Leben,German,France,1985,46.0,2.0,France
+255,Nana Mouskouri,So leb dein Leben,German,Greece,1991,39.0,22.0,Greece
+256,Mark Lorenz,So leb dein Leben,German,Germany,2001,51.5,10.5,Germany
+257,Tony Marshall Featuring Xavier Naidoo,So leb Dein Leben,English,Germany,1996,51.5,10.5,Germany
+258,Nina Hagen,My Way,German,Germany,1980,51.5,10.5,Germany
+259,Claude François,Come sempre,Italian,France,1968,46.0,2.0,France
+260,Fred Bongusto,La mia via,Italian,Italy,1971,42.833333,12.833333,Italy
+261,Patty Pravo,A modo mio,Italian,Italy,1972,42.833333,12.833333,Italy
+262,Vanessa Calcagno,La mia strada (My Way),Italian,Germany,2010,51.5,10.5,Germany
+263,Andrea Bocelli,La mia via (My Way),Italian,Italy,2013,42.833333,12.833333,Italy
+264,Akira Fuse,マイ・ウェイ [My Way],Japanese,Japan,1972,36.0,138.0,Japan
+265,Saeko,My Way,Japanese,Japan,2006,36.0,138.0,Japan
+266,Agnaldo Timóteo,Eu já me habituei,Portuguese,Brazil,1969,-10.0,-55.0,Brazil
+267,Звезды Notre Dame,Мой путь,Russian,Russia,2003,60.0,100.0,Russia
+268,La Lupe,Como acostumbras,Spanish,Cuba,1970,22.0,-79.5,Cuba
+269,Gipsy Kings,A mi manera,Spanish,France,1987,46.0,2.0,France
+270,Joan Baez,A mi manera,Spanish,United States,1989,39.828175,-98.5795,United States
+271,Belle Perez,A mi manera,English,Belgium,1973,50.833333,4.0,Belgium
+272,Il Divo,A mi manera,Spanish,United Kingdom,2004,54.0,-4.0,United Kingdom
+273,Alfio,A mi manera (My Way),Spanish,Australia,2006,-25.0,135.0,Australia
+274,Paul Potts,My Way (A mi manera),Spanish,United Kingdom,2007,54.0,-4.0,United Kingdom
+275,Raphael con Paul Anka,A mi manera,Spanish,Canada,2008,60.0,-96.0,Canada
+276,Los Temerarios,A mi manera,Spanish,Mexico,2012,23.0,-102.0,Mexico
+277,Dafydd Iwan,Dal i Gredu,Welsh,United Kingdom,1991,54.0,-4.0,United Kingdom
+278,Harald Juhnke,My Way,English,Germany,1996,51.5,10.5,Germany
+279,Zangeres Zonder Naam,Mijn leven (My Way),English,Netherlands,1992,52.5,5.75,Netherlands
+280,Joesi Prokopetz,My Schmäh,English,Austria,2001,47.333333,13.333332999999998,Austria
