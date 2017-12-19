@@ -2224,7 +2224,7 @@
                         key: "setupLegend",
                         value: function() {
                             var t = this._svg.append("g").attr("opacity", 0).classed("legend", !0),
-                                e = h.scaleOrdinal().domain(["All Songs", "Top 10"]).range(["steelblue", "orange"]),
+                                e = h.scaleOrdinal().domain(["All Songs", "Top 10"]).range(["steelblue", "magenta"]),
                                 n = (0, g.legendColor)().shape("rect").shapeWidth(25).shapeHeight(3).shapePadding(40).orient("horizontal").scale(e);
                             t.call(n);
                             var r = t.node().getBBox(),
@@ -2267,7 +2267,7 @@
                                 n = h.line().y(e).x(this.datx),
                                 r = this.svg.select(".hitpath");
                             if (r.empty()) {
-                                r = this.svg.append("path").datum(m.default).classed("trendline hitpath", !0).attr("stroke", "orange").attr("fill", "none").attr("d", n);
+                                r = this.svg.append("path").datum(m.default).classed("trendline hitpath", !0).attr("stroke", "magenta").attr("fill", "none").attr("d", n);
                                 var o = r.node().getTotalLength();
                                 r.attr("stroke-dasharray", o + " " + o).attr("stroke-dashoffset", o)
                             }
