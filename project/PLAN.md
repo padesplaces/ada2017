@@ -1,31 +1,36 @@
 # Intro
-probablement parler de My Way comme example d'une des chansons les plus reprises ever (3e)
+abstract
++ probablement parler de My Way comme example d'une des chansons les plus reprises ever (3e)
 
-## Numbers
-* Most covered songs (top 10) ? (depends if it matches reality)
-* Artists most covered ?
-* Top 10 by decades (visu like article pudding)
+## General
+* Most covered songs (top 10) ? (depends if it matches reality)  ✅
+* Artists most covered ? ✅
+* Top 10 by decades ✅ (visu like article pudding)
 
 can switch last 2 questions
 
 ## Date
-* more covers in the same decade (year is too short) or not ?
-* nb of covers per year (barplot or curve)
-* nb of covers of originals of that year (barplot or curve)
-* year with the most originals (?)
-* year with the most covers 
+* (year with the most originals)
+* (year with the most covers)
+* nb of covers per year (barplot or curve) ✅
+* nb of originals per year (barplot or curve) ✅
+
+* nb of covers of originals per year (barplot or curve) ✅
+* more covers in the following decade or not ? ✅
 
 ## Location
-* more covers in the same country or not ?
+* more covers in the same country or different ? ✅
 * country with the most originals (map)
 * country with the most covers (map)
 * do covers spread further now than before ? (if possible)
 
 ## Genre
-* more covers in the same genre or not ?
+* more covers in the same genre or different ?
 * originals by genre (piechart)
 
 ### Popularity (optional)
+On average, are covers more or less popular than their original ?
 ### Tempo (optional)
+On average, are covers faster or slower than their original ?
 
 # Song Story

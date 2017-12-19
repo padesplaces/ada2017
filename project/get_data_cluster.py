@@ -18,11 +18,14 @@ for track in covers:
 	folder1 = track[2]
 	folder2 = track[3]
 	folder3 = track[4]
+
+	if folder1 == 'X' or folder1 == 'Z':
+		continue
+
 	folder_path = "/buffer/million-song/dataset/" + folder1 + "/" + folder2 + "/" + folder3 + "/"
 	track_path = folder_path + track + ".h5"
 
 	h5 = hdf5_getters.open_h5_file_read(track_path)
-	track_id = hdf5_getters.get_track_id(h5)
 	song_hotttnesss = hdf5_getters.get_song_hotttnesss(h5)
 	tempo = hdf5_getters.get_tempo(h5)
 
@@ -30,9 +33,10 @@ for track in covers:
 	if counter % (size/100) == 0:
 		print(str(100*counter/size) + "%")
 
-	row = [track_id, song_hotttnesss, tempo]
+	row = [track, song_hotttnesss, tempo]
 	row = map(lambda x : str(x),row)
 	rows.append(', '.join(row)+"\n")
+	h5.close()
 
 with open('/home/desplace/tempo_and_popularity.csv', 'w+') as f:
 	f.writelines(rows)
