@@ -9,7 +9,7 @@
   <script src="moment.js"></script>
   <script src="underscore.js"></script>
   <script src="d3.slider.js"></script>
-
+  <script src="jquery-3.2.1.min.js"></script>
 
 </head>
 
@@ -25,8 +25,6 @@ var width = 960,
     height = 1160;
 
 var projection = d3.geo.mercator();
-//    .scale(1280)
-//    .translate([width / 2, height / 2]);
 
 var path = d3.geo.path()
     .projection(projection);
@@ -109,12 +107,10 @@ var minDateUnix = 1967;
 var maxDateUnix = 2016;
 
 
-
 d3.select('#slider3').call(d3.slider()
   .axis(true).min(minDateUnix).max(maxDateUnix).step(1)
   .on("slide", function(evt, value) {
     var newData = _(site_data).filter( function(site) {
-      console.log(newData);
       return site.created_at < value;
     })
     // console.log("New set size ", newData.length);
