@@ -1,6 +1,6 @@
 # **_"My Way"_ of seeing music covers**
 
-The main notebook is called "Project Notebook".
+Please note that the main notebook is called "Project Notebook", we merged all of our separate work in it in a coherent way.
 
 ### Abstract
 

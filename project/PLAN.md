@@ -1,6 +1,5 @@
 # Intro
 abstract
-+ probablement parler de My Way comme example d'une des chansons les plus reprises ever (3e)
 
 ## General
 * Most covered songs (top 10) ? (depends if it matches reality)  ✅
@@ -22,16 +21,16 @@ can switch last 2 questions
 * more covers in the same country or different ? ✅
 * country with the most originals (map) ✅
 * country with the most covers (map) ✅
-* do covers spread further now than before ? (if possible) ??
 
 ## Genre
 * originals by genre (piechart) ✅
 * covers by genre (piechart) ✅
 * more covers in the same genre or different ? ✅
 
-### Popularity (optional)
+### Popularity (nope)
 On average, are covers more or less popular than their original ?
-### Tempo (optional)
+### Tempo (nope)
 On average, are covers faster or slower than their original ?
 
-# Song Story
+# Song Story  ✅
+
